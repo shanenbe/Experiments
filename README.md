@@ -30,6 +30,8 @@ The experiment is a 2x3x3 N-of-1 trial with the following three independent vari
 
 - indentation (indented, non-indented): Indented code uses 4 whitespaces for each indentation level.
 - read_indent (4, 6, 8): It is the lines to be read in the indented code (only those lines that are necessary)
-- diff (0, 2, 4): The differences between the lines that need to be read in the non-indented code (it is assume that even those lines that could be jumped over need to be read) and the indentec code.
+- diff (0, 2, 4): The differences between the lines that need to be read in the non-indented code (it is assumed that even those lines that could be jumped over need to be read - except the return statements) and the indented code.
+
+The first variable is the main variable in the experiment (since it is about indented and non-indented code), the interaction between the latter ones is the most interesting one (because such interaction explains the differences between indented and non-indented code).
 
 
