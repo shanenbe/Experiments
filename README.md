@@ -7,7 +7,11 @@ In case you are interested in N-of-1 experiments in programming and software sci
 
 [Hanenberg, Mehlhorn, "Two N-of-1 self-trials on readability differences between anonymous inner classes (AICs) and lambda expressions (LEs) on Java code snippets", Empir. Softw. Eng. 27(2): 33 (2022)](https://doi.org/10.1007/s10664-021-10077-3)
 
-Each experiment generated a csv file at the end of the experiment. The present code does not do the analysis automatically (just load the csv into your preferred stats program and run an ANOVA).
+Each experiment generates a csv file at the end of the experiment. The present code does not do the analysis automatically (just load the csv into your preferred stats program and run an ANOVA).
+
+
+Note that this is NOT the source code repository for the software used in each experiment (which can be found [here](https://github.com/shanenbe/N-of-1-Experimentation)) - the experiments 
+just use some versions of the mentioned repository in their file lib.js (probably in different version - I will not keep the experiments in sync with the code repo in order not to change experiments that were already executed).
 
 In case you have questions or comments, just drop me an email.
 
