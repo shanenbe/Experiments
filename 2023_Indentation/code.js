@@ -190,8 +190,8 @@ document.experiment_definition(
                             "questions and the experiment itself." +
                             "You can cancel the training session whenever you like. As long " +
                             "you do not cancel the training, new code snippets will be shown to you.\n\n" +
-                            "When the you see the first task in the training session, please increase/decrease the font" +
-                            "in the browser so that you can see all lines of code (plus some additional lines)\n" +
+                            "When the you see the first task in the training session, please increase/decrease the font " +
+                            "in the browser so that you can see all lines of code (plus some additional lines).\n" +
                             "Depending on your browser and your machine, this could be done by pressing [CTRL] + [+] " +
                             "or [CTRL] + [.].\n\n" +
                             "Press [Return] to enter the training phase."],
