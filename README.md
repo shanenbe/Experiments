@@ -16,5 +16,6 @@ In case you have questions or comments, just drop me an email.
 
 The following experiments are currently available:
 
-## 1. Indentation <sup>[click here start](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2023_Indentation/index.html)</sup>
+## 1. Indentation
+[click here start](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2023_Indentation/index.html)
 This experiment 
