@@ -21,10 +21,10 @@ In case you have questions or comments, just drop me an email.
 
 The following experiments are currently available:
 
-## 1. Indentation
+## 1. Indentation (nested if-statements)
 [click here start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2023_Indentation/index.html)
 
-This experiment checks the effect of indentation on (nested) if-statements. Each shown if-statement consists of 7 (nested) if-statements.
+This experiment (described in detail in a paper that is not yet published) checks the effect of indentation on (nested) if-statements. Each shown if-statement consists of 7 (nested) if-statements.
 
 The experiment is a 2x3x3 N-of-1 trial with the following three independent variables:
 
