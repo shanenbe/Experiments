@@ -141,6 +141,7 @@ class ReturnStatement extends Statement {
     }
 }
 
+document.SET_SEED("42");
 let all_statements_with_condition = [];
 let statements = [];
 create_statements(7, statements);
@@ -172,16 +173,16 @@ document.experiment_definition(
         experiment_name:"Stefan First Trial",
         seed:"42",
         introduction_pages:["Thanks for participating in the experiment about indentation.\n\n" +
-                            "Participating in the experiment should take about 20 minutes.\n\n" +
-                            "In the following, (nested) is-statements will be shown to you. " +
-                            "The question to you is for each if-statement, what it returns. " +
+                            "Running the experiment should take about 20 minutes.\n\n" +
+                            "In the following, (nested) if-statements will be shown to you. " +
+                            "The question is for each if-statement, what it returns. " +
                             "For example, if you see the following statement\n\n" +
                             "  if (true) {\n" +
                             "    return 1;\n" +
                             "  } else {\n" +
                             "    return 2;\n" +
                             "  }\n\n" +
-                            "the answer will be 1, i.e. you have to press the button [2].\n\n",
+                            "the answer will be 1, i.e. you have to press the button [1].\n\n",
 
                             "The experiment consists of a training phase an an experiment phase.\n" +
                             "The training phase is only for you to get familiar with the " +
