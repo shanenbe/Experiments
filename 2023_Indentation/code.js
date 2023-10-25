@@ -81,7 +81,11 @@ class IfStatement extends Statement{
         if(this.condition)
             return 1 + this.then_branch.read_non_indent();
         else
-            return 1 + this.then_branch.read_non_indent() + 1 + this.else_branch.read_non_indent();
+            return 1 + 1  + this.then_branch.numIfs() + this.else_branch.read_non_indent();
+    }
+
+    numIfs() {
+        return 1 + 1 + this.then_branch.numIfs() + this.else_branch.numIfs();
     }
 
     indented_code(level) {
@@ -128,6 +132,10 @@ class ReturnStatement extends Statement {
 
     read_non_indent() {
         return 1;
+    }
+
+    numIfs() {
+        return 0;
     }
 
     indented_code(level) {
@@ -200,7 +208,7 @@ document.experiment_definition(
                       "If you want to contribute to research, you can send the downloaded file to stefan.hanenberg@uni-due.de."],
         layout:[
             {variable:"Indentation",treatments:["indented", "non-indented"]},
-            {variable:"Read_Indent",treatments:["3", "5", "7"]},
+            {variable:"Read_Indent",treatments:["4", "6", "8"]},
             {variable:"Diff",treatments:["0", "2", "4"]}
         ],
         repetitions:5,                    // Anzahl der Wiederholungen pro Treatmentcombination
