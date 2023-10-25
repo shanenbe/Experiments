@@ -1,3 +1,5 @@
+document.set_seed('42');
+
 function next_random_int_0_to_9() {
     return document.new_random_integer(10);
 }
@@ -141,7 +143,6 @@ class ReturnStatement extends Statement {
     }
 }
 
-document.SET_SEED("42");
 let all_statements_with_condition = [];
 let statements = [];
 create_statements(7, statements);
