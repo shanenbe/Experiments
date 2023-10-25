@@ -1,7 +1,7 @@
 # Collection of experiments on programming and source code
 
 This repo contains a bunch of N-of-1 experiments that I designed once. Some are older experiments that were originally written in Java and that I converted now to JavaScript in order to ease the execution of experiments. You can start
-each experiment just by clicking on the links
+each experiment just by clicking on the links in the list below.
 
 In case you are interested in N-of-1 experiments in programming and software science, you might be interested in the following paper (available via public access)
 
@@ -13,8 +13,10 @@ In case you have questions or comments, just drop me an email.
 
 -Stefan
 
-The following experi
 
-## (Indentation)[https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2023_Indentation/index.html]
+The following experiments are currently available:
+
+## 1. Indentation
+(Click here to start the experiment)[[https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2023_Indentation/index.html]
 This experiment 
 see this page here: https://shanenbe.github.io/Experiments/
