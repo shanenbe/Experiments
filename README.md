@@ -26,7 +26,7 @@ The following experiments are currently available:
 
 This experiment checks the effect of indentation on (nested) if-statements. Each shown if-statement consists of 7 (nested) if-statements.
 
-The experiment is a 2x3x3 experiment with the following three independent variables:
+The experiment is a 2x3x3 N-of-1 trial with the following three independent variables:
 
 - indentation (indented, non-indented): Indented code uses 4 whitespaces for each indentation level.
 - read_indent (3, 5, 7): It is the lines to be read in the indented code (only those lines that are necessary)
