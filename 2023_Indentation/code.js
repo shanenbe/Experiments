@@ -173,10 +173,10 @@ document.experiment_definition(
     {
         experiment_name:"Stefan First Trial",
         seed:"42",
-        introduction_pages:["Thanks for participating in the experiment about indentation.\n\n" +
-                            "Running the experiment should take about 20 minutes.\n\n" +
+        introduction_pages:["Thanks for participating in the experiment on indentation in source code.\n\n" +
+                            "Running the experiment takes about 20 minutes.\n\n" +
                             "In the following, (nested) if-statements will be shown to you. " +
-                            "The question is for each if-statement, what it returns. " +
+                            "The question for each statement is, what it returns. " +
                             "For example, if you see the following statement\n\n" +
                             "  if (true) {\n" +
                             "    return 1;\n" +
@@ -185,9 +185,9 @@ document.experiment_definition(
                             "  }\n\n" +
                             "the answer will be 1, i.e. you have to press the button [1].\n\n",
 
-                            "The experiment consists of a training phase an an experiment phase.\n" +
+                            "The experiment consists of a training phase an an experiment phase.\n\n" +
                             "The training phase is only for you to get familiar with the " +
-                            "questions shown to you and to get familiar with the webpage.\n" +
+                            "questions and the experiment itself." +
                             "You can cancel the training session whenever you like. As long " +
                             "you do not cancel the training, new code snippets will be shown to you.\n\n" +
                             "When the you see the first task in the training session, please increase/decrease the font" +
