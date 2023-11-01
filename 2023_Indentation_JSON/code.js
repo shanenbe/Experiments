@@ -170,7 +170,7 @@ document.experiment_definition(
         "For example, if you see the following statement\n\n" +
         "  {\n" +
         "    \"test:\" \"box\",\n" +
-        "    \"blue:\" \"{\"\n" +
+        "    \"blue:\" {\n" +
         "      \"node:\" \"dummy\"\n" +
         "    }\n" +
         "  }\n" +
