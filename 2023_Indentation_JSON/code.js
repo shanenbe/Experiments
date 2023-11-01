@@ -179,13 +179,16 @@ document.experiment_definition(
             "The experiment consists of a training phase an an experiment phase.\n\n" +
             "The training phase is only for you to get familiar with the " +
             "questions and the experiment itself." +
-            "You can cancel the training session whenever you like.\nAs long " +
+            "You can cancel the training session whenever you like and whenever you feel" +
+            "that there is no longer any need for you to practice.\nAs long " +
             "you do not cancel the training, new code snippets will be shown to you.\n\n" +
             "When the you see the first task in the training session, please increase/decrease the font " +
-            "in the browser so that you can see all lines of code (plus some additional lines).\n" +
+            "in the browser so that you can see all lines of code (plus some additional lines).\n\n" +
             "Depending on your browser and your machine, this could be done by pressing [CTRL] + [+] " +
             "or [CTRL] + [.].\n\n" +
-            "Press [Return] to enter the training phase."],
+            "Press [Return] to enter the training phase.\n\n" +
+            "Note: you can always make a pause between two tasks, when you pressed a button and the\n " +
+            "correct result will be shown to you."],
         pre_run_instruction:"Please put your fingers on the number buttons.\n\nWhen you press [Enter] the first task will be shown.",
         finish_pages:["Thanks for participating. When you press [Enter], the experiment's data will be downloaded.\n\n" +
         "If you want to contribute to research, you can send the downloaded file to stefan.hanenberg@uni-due.de."],
