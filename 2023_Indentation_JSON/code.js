@@ -1,60 +1,34 @@
-document.set_seed('42');
-let words = [];
+try {
+        document.set_seed('42');
+} catch (e) {
+}
+
+function random_number(n) {
+    try {
+        return document.new_random_integer(n);
+    } catch (e) {
+        return Math.floor(Math.random() * n);
+    }
+
+}
 
 function random_noun() {
-    let element = document.new_random_integer(document.nouns.words.length);
-    return document.nouns.words[element];
-    // return "dummy";
-}
-
-
-function create_nodes(max, Fs) {
-    let res = [];
-    create_node(res, "", "", max, Fs);
-    return res;
-}
-
-function create_node(result, pre, post, max, Fs) {
-    if((pre.length + post.length) > max)
-        return;
-
-    let res = [];
-
-    for (let counter = 1;
-         (pre.length + post.length - counter < max) && (counter <= Fs);
-         counter++)
-    {
-        create_F(res, pre + "F".repeat(counter), post, max, Fs);
+    try {
+        let element = document.new_random_integer(document.nouns.words.length);
+        return document.nouns.words[element];
+    } catch (e) {
+        return "dummy";
     }
-    create_O(res, pre, post, max, Fs);
-
-    for(let i=0; i < res.length; i++) {
-        create_node(res, res[i], "", max, Fs)
-    }
-    // }
 }
 
-function create_F(result, pre, post, max, Fs) {
-    let word = (pre + post);
-    if(word.length==max && (word.match(/F/g) || []).length == Fs && (word.match(/FFF/g) || []).length == 0)  {
-        words.push(word);
-        // console.log(word);
-    }
-    if(word.length<max && (word.match(/FFF/g) || []).length ==  0)
-        result.push(word);
-}
-
-function create_O(result, pre, post, max, Fs) {
-    if((pre.length+ post.length) > max)
-        return;
-    create_node(result, pre + "{" , post + "}", max, Fs);
-}
 
 class JSON_Root{}
 
 class JSON_Object extends JSON_Root {
+
     fields = [];
     parse(string_array) {
+        this.parsed_string = "{" + string_array.join("") + "}";
         while(string_array.length > 0) {
             let e = string_array[0];
             string_array.shift();
@@ -78,11 +52,11 @@ class JSON_Object extends JSON_Root {
     }
 
     read_NI_depth(depth) {
-        let ret = 3;
+        let ret = 1;
         for(let c=0; c<this.fields.length;c++) {
             ret = ret + this.fields[c].value.read_NI_depth(depth+1);
         }
-        return ret;
+        return 2*ret;
     }
 
     source_code(indentationString) {
@@ -98,11 +72,12 @@ class JSON_Object extends JSON_Root {
             this.fields[counter].value._source_code(result, indentationString, level+1);
             if(counter < this.fields.length-1)
                 result.push(',\n');
+            else
+                result.push("\n");
         }
 
-        result.push("\n" + indentationString.repeat(level) + "}");
+        result.push(indentationString.repeat(level) + "}");
     }
-
 }
 class JSON_Value extends JSON_Root {
     value;
@@ -135,35 +110,80 @@ function parse_word(word) {
     ret.parse(string_array);
     return ret;
 }
-
-
-
-let nodes = create_nodes(24, 8);
-// o = parse_word(words[255]);
-// console.log(o.source_code("    "));
-
-let classified_words = {}
-
-for (let i = 0; i < words.length; i++) {
-    let JSON = parse_word(words[i]);
-    let read_i = JSON.read_I();
-    // console.log(read_i);
-    let read_ni = JSON.read_NI();
-    if(classified_words[""+read_i]==undefined)
-        classified_words[""+read_i]={};
-    if(classified_words[""+read_i]["" + read_ni]==undefined) {
-        classified_words["" + read_i]["" + read_ni] = [];
-    }
-    classified_words["" + read_i]["" + read_ni].push(JSON);
+function random_shuffle(array) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
 }
 
-console.log("init done");
+function create_nodes_random(max, Fs) {
+    ret = [];
+    for (let i = 0; i < FS; i++) {
+        ret.push("F");
+    }
+
+    for (let i = 0; i < Math.floor(max-FS,2); i++) {
+        ret.push("{");
+        ret.push("{");
+    }
+
+
+}
+
+function create_random_JSON_Object(lengthh, FS, numObject) {
+    let brute_force = create_random_JSON_Pattern(lengthh, FS);
+    let o = parse_word(brute_force);
+    while(o.fields.length!=numObject) {
+        brute_force = create_random_JSON_Pattern(lengthh, FS);
+        o = parse_word(brute_force);
+    }
+    return o;
+}
+
+function create_random_JSON_Pattern(lengthh, Fs) {
+    let ret = [];
+    let shuffeled_ret = [];
+    for (let i = 0; i < Fs; i++) {
+        ret.push("F");
+    }
+    for (let i = 0; i < (lengthh-Fs)/2; i++) {
+        ret.push("{");
+        ret.push("}");
+    }
+
+    let num_open_bracket = 0;
+    let num_closing_bracket = 0;
+    while (ret.length>0) {
+        let random_num = random_number(ret.length);
+
+        while(ret[random_num]=="}" && num_closing_bracket==num_open_bracket) {
+            random_num = random_number(ret.length);
+        }
+
+        if(ret[random_num]=="}")
+            num_closing_bracket++;
+        if(ret[random_num]=="{")
+            num_open_bracket++;
+
+        shuffeled_ret.push(ret[random_num]);
+        let ret_length_before = ret.length;
+        ret.splice(random_num, 1);
+        let ret_length_after = ret.length;
+
+        if(ret_length_after!=ret_length_before-1)
+            throw "does not work";
+    }
+    let return_string = shuffeled_ret.join("");
+    let ret_string_length = return_string.length;
+    return return_string;
+}
 
 document.experiment_definition(
     {
         experiment_name:"Indentation_JSON",
         seed:"42",
-        introduction_pages:["Thanks for participating in the experiment on indentation in source code.\n\n" +
+        introduction_pages:[
         "Running the experiment takes about 15 minutes.\n\n" +
         "In the following, JSON objects will be shown to you.\n" +
         "The question for each object is, how many field it has (i.e. the uppermost object). " +
@@ -173,13 +193,20 @@ document.experiment_definition(
         "    \"blue:\" {\n" +
         "      \"node:\" \"dummy\"\n" +
         "    }\n" +
+        "  }\n\n" +
+        "the answer will be 2, i.e. you have to press the button [2].\n\n" +
+        "The same JSON without indentation (with the same response) looks like:\n\n" +
+        "  {\n" +
+        "  \"test:\" \"box\",\n" +
+        "  \"blue:\" {\n" +
+        "  \"node:\" \"dummy\"\n" +
         "  }\n" +
-        "the answer will be 2, i.e. you have to press the button [2].\n\n",
+        "  }\n\n" ,
 
             "The experiment consists of a training phase an an experiment phase.\n\n" +
             "The training phase is only for you to get familiar with the " +
             "questions and the experiment itself." +
-            "You can cancel the training session whenever you like and whenever you feel" +
+            "You can cancel the training session whenever you like and whenever you feel\n" +
             "that there is no longer any need for you to practice.\nAs long " +
             "you do not cancel the training, new code snippets will be shown to you.\n\n" +
             "When the you see the first task in the training session, please increase/decrease the font " +
@@ -194,16 +221,13 @@ document.experiment_definition(
         "If you want to contribute to research, you can send the downloaded file to stefan.hanenberg@uni-due.de."],
         layout:[
             {variable:"Indentation",treatments:["indented", "non-indented"]},
-            {variable:"Read_I",treatments:["4", "5", "6", "7", "8"]},
+            {variable:"Number_of_fields",treatments:["1", "3", "5"]},
         ],
-        repetitions:10,                    // Anzahl der Wiederholungen pro Treatmentcombination
-        accepted_responses:["0", "1","2","3", "4", "5", "6", "7", "8", "9"], // Tasten, die vom Experiment als Eingabe akzeptiert werden
+        repetitions:5,                    // Anzahl der Wiederholungen pro Treatmentcombination
+        accepted_responses:["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"], // Tasten, die vom Experiment als Eingabe akzeptiert werden
         task_configuration:(t)=>{
-
-            let possible_statements =
-                classified_words[t.treatment_combination[1].value][35];
-
-            let statement = possible_statements[document.new_random_integer(possible_statements.length)];
+            let int_value = parseInt(t.treatment_combination[1].value);
+            let statement = create_random_JSON_Object(27, 7, int_value);
 
             if (t.treatment_combination[0].value=="indented") // fragt, ob die erste Variable (die einzige) den Wert "indented" hat
                 t.code = statement.source_code("    ");
