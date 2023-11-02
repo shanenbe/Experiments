@@ -203,7 +203,7 @@ document.experiment_definition(
         "  }\n" +
         "  }\n\n" ,
 
-            "The experiment consists of a training phase an an experiment phase.\n\n" +
+            "The experiment consists of a training phase and an experiment phase.\n\n" +
             "The training phase is only for you to get familiar with the " +
             "questions and the experiment." +
             "You can cancel the training session whenever you like and whenever you feel\n" +
@@ -215,13 +215,14 @@ document.experiment_definition(
             "or [CTRL] + [.].\n\n" +
             "Press [Return] to enter the training phase.\n\n" +
             "Note: you can always make a pause between two tasks, when you pressed a button and the\n " +
-            "correct result will be shown to you."],
+            "correct result will be shown."],
         pre_run_instruction:"Please put your fingers on the number buttons.\n\nWhen you press [Enter] the first task will be shown.",
         finish_pages:["Thanks for participating. When you press [Enter], the experiment's data will be downloaded.\n\n" +
         "If you want to contribute to research, you can send the downloaded file to stefan.hanenberg@uni-due.de. \n\n" +
         "Additionally to the experiment data, it is necessary that you send the signed \n" +
         "information sheet to the same mail address. You can download the information sheet at:\n\n" +
         "https://github.com/shanenbe/Experiments/blob/main/2023_Indentation_JSON/Aufkl%C3%A4rungbogen%20und%20Einverst%C3%A4ndniserkl%C3%A4rung%20zur%20Teilnahme%20an%20der%20Studie.pdf\n\n" +
+        "Please write additionally on the information sheet, how many years of working experience as a software developer you have." +
         "Again, thanks for participating.\n\n" +
         "Stefan"],
         layout:[
