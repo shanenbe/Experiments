@@ -184,7 +184,7 @@ document.experiment_definition(
         experiment_name:"Indentation_JSON",
         seed:"42",
         introduction_pages:[
-        "Running the experiment takes about 15 minutes.\n\n" +
+        "Running the experiment (without training) takes between 5 and 10 minutes.\n\n" +
         "In the following, JSON objects will be shown to you.\n" +
         "The question for each object is, how many field it has (i.e. the uppermost object). " +
         "For example, if you see the following statement\n\n" +
@@ -205,7 +205,7 @@ document.experiment_definition(
 
             "The experiment consists of a training phase an an experiment phase.\n\n" +
             "The training phase is only for you to get familiar with the " +
-            "questions and the experiment itself." +
+            "questions and the experiment." +
             "You can cancel the training session whenever you like and whenever you feel\n" +
             "that there is no longer any need for you to practice.\nAs long " +
             "you do not cancel the training, new code snippets will be shown to you.\n\n" +
