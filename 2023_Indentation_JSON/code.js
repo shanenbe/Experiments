@@ -221,7 +221,9 @@ document.experiment_definition(
         "If you want to contribute to research, you can send the downloaded file to stefan.hanenberg@uni-due.de. \n\n" +
         "Additionally to the experiment data, it is necessary that you send the signed \n" +
         "information sheet to the same mail address. You can download the information sheet at:\n\n" +
-        "https://github.com/shanenbe/Experiments/blob/main/2023_Indentation_JSON/Aufkl%C3%A4rungbogen%20und%20Einverst%C3%A4ndniserkl%C3%A4rung%20zur%20Teilnahme%20an%20der%20Studie.pdf"],
+        "https://github.com/shanenbe/Experiments/blob/main/2023_Indentation_JSON/Aufkl%C3%A4rungbogen%20und%20Einverst%C3%A4ndniserkl%C3%A4rung%20zur%20Teilnahme%20an%20der%20Studie.pdf\n\n" +
+        "Again, thanks for participating.\n\n" +
+        "Stefan"],
         layout:[
             {variable:"Indentation",treatments:["indented", "non-indented"]},
             {variable:"Number_of_fields",treatments:["1", "3", "5"]},
