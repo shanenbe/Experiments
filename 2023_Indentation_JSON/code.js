@@ -222,7 +222,7 @@ document.experiment_definition(
         "Additionally to the experiment data, it is necessary that you send the signed \n" +
         "information sheet to the same mail address. You can download the information sheet at:\n\n" +
         "https://github.com/shanenbe/Experiments/blob/main/2023_Indentation_JSON/Aufkl%C3%A4rungbogen%20und%20Einverst%C3%A4ndniserkl%C3%A4rung%20zur%20Teilnahme%20an%20der%20Studie.pdf\n\n" +
-        "Please write additionally on the information sheet, how many years of working experience as a software developer you have." +
+        "Please write additionally on the information sheet, how many years of working experience as a software developer you have.\n\n" +
         "Again, thanks for participating.\n\n" +
         "Stefan"],
         layout:[
