@@ -47,18 +47,6 @@ class JSON_Object extends JSON_Root {
         return this.fields.length;
     }
 
-    read_NI() {
-        return this.read_NI_depth(0);
-    }
-
-    read_NI_depth(depth) {
-        let ret = 1;
-        for(let c=0; c<this.fields.length;c++) {
-            ret = ret + this.fields[c].value.read_NI_depth(depth+1);
-        }
-        return 2*ret;
-    }
-
     source_code(indentationString) {
         let ret = [];
         this._source_code(ret, indentationString, 0);
@@ -91,14 +79,6 @@ class JSON_Value extends JSON_Root {
         result.push('"' + this.value + '"');
     }
 
-    read_NI() {
-        return 1;
-    }
-
-    read_NI_depth() {
-        return 1;
-    }
-
 }
 
 function parse_word(word) {
@@ -110,26 +90,7 @@ function parse_word(word) {
     ret.parse(string_array);
     return ret;
 }
-function random_shuffle(array) {
-    const j = Math.floor(Math.random() * (i + 1));
-    const temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
-}
 
-function create_nodes_random(max, Fs) {
-    ret = [];
-    for (let i = 0; i < FS; i++) {
-        ret.push("F");
-    }
-
-    for (let i = 0; i < Math.floor(max-FS,2); i++) {
-        ret.push("{");
-        ret.push("{");
-    }
-
-
-}
 
 function create_random_JSON_Object(lengthh, FS, numObject) {
     let brute_force = create_random_JSON_Pattern(lengthh, FS);
