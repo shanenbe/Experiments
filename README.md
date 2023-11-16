@@ -50,3 +50,13 @@ The first variable is the main variable in the experiment (since it is about ind
 
 ## 3. Strings
 [click here start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2023_String_Expressions_Escaping_vs_NonSingleLiteral_vs_Composition/index.html)
+
+Checks how string should be composed. 
+
+The experiment randomly generated expressions and it is up to the participant to decide whether the (Boolean) expression is valid.
+The different string representations are
+  - Escaping: strings might have escaped quotation marks)
+  - Containment: the outer string uses ' while inner string use " - similar to JavaScript)
+  - Composition: a string with quotation marks is a string composition (using + as a concat operator) where a variable QUOTE represents the quotation mark.
+
+It is a 3x3 experiment - the first variable is the style (Excaping, etc.), the second one is the position where one decides whether or not the expression is correct (-1 means that the whole string needs to be read).
