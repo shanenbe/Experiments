@@ -26,7 +26,7 @@ The following experiments are currently available:
 
 This experiment (described in detail in a paper that is not yet published) checks the effect of indentation on (nested) if-statements. Each shown if-statement consists of 7 (nested) if-statements.
 
-The experiment is a 2x3x3 N-of-1 trial (with 5 repetitions per treatement combination) with the following independent variables:
+The experiment is a 2x3x3 N-of-1 trial (with 5 repetitions per treatment combination) with the following independent variables:
 
 - indentation (indented, non-indented): Indented code uses 4 whitespaces for each indentation level.
 - read_indent (4, 6, 8): It is the lines to be read in the indented code (only those lines that are necessary)
@@ -59,4 +59,6 @@ The different string representations are
   - Containment: the outer string uses ' while inner string use " - similar to JavaScript)
   - Composition: a string with quotation marks is a string composition (using + as a concat operator) where a variable QUOTE represents the quotation mark.
 
-It is a 3x3 experiment - the first variable is the style (Excaping, etc.), the second one is the position where one decides whether or not the expression is correct (-1 means that the whole string needs to be read).
+It is a 3x3 experiment with 4 repetitions per treatment combination - the first variable is the style (Excaping, etc.), the second one is the position where one decides whether or not the expression is correct (-1 means that the whole string needs to be read).
+
+Probably the big result of the study is: string composition is probably the worst choice to do for string generation.
