@@ -47,3 +47,6 @@ The experiment is a 2x3 N-of-1 trial (5 repetitions per treatment combination) w
 - answer (1, 3, 5): The number of fields the outermost object has.
 
 The first variable is the main variable in the experiment (since it is about indented and non-indented code). The second variable is more a "technical variable" where we think that its' contribution to the experiment is not much (i.e., it does not interact with the main variable).
+
+## 3. Strings
+[click here start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2023_String_Expressions_Escaping_vs_NonSingleLiteral_vs_Composition/index.html)
