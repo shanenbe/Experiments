@@ -150,7 +150,10 @@ function random_expression(num_operators, read_quartile, separation_string) {
 function composed_string(num_operators, read_quartile) {
     let ret = random_expression(num_operators, read_quartile, "\" + QUOTE + \"");
     if (ret.string.startsWith("\" + QUOTE"))
-        return {string: ret.string.slice(4) + '"', error_pos: ret.error_pos};
+        if(ret.string.endsWith("QUOTE + \""))
+            return {string: ret.string.slice(4, ret.string.length - 4), error_pos: ret.error_pos};
+        else
+             return {string: ret.string.slice(4) + '"', error_pos: ret.error_pos};
     return {string: '"' + ret.string + '"', error_pos: ret.error_pos};
 }
 
