@@ -51,7 +51,7 @@ The first variable is the main variable in the experiment (since it is about ind
 ## 3. Strings with Questionmarks: Backslash, Composition, Containment
 [click here start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2023_String_Expressions_Escaping_vs_NonSingleLiteral_vs_Composition/index.html)
 
-Checks how string should be composed. 
+Checks how strings should be composed. 
 
 The experiment randomly generated expressions and it is up to the participant to decide whether the (Boolean) expression is valid.
 The different string representations are
