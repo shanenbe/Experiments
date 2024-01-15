@@ -62,3 +62,6 @@ The different string representations are
 It is a 3x3 experiment with 4 repetitions per treatment combination - the first variable is the style (Excaping, etc.), the second one is the position where one decides whether or not the expression is correct (-1 means that the whole string needs to be read).
 
 Probably the big result of the study is: string composition is probably the worst choice to do for string generation.
+
+## 4. CamelCase, Snake_Case
+[click here start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2024_CamelCase_Underscore/index.html)
