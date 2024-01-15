@@ -48,6 +48,7 @@ function change_letter(letter) {
     else
         return change_consonant(letter);
 }
+
 function change_position(word, position) {
     let replacement_letter = change_letter(word[position]);
     let ret = word.slice(0, position) + replacement_letter + word.slice(position+1, word.length);
@@ -77,7 +78,7 @@ function change_identifier(word) {
 function word_to_uppercase(wordArray) {
     let ret = [wordArray[0]];
     for(let i = 1; i < wordArray.length; i++) {
-        ret.push((wordArray[i][0]).toUpperCase() + wordArray[i].slice(1, wordArray[0].length));
+        ret.push((wordArray[i][0]).toUpperCase() + wordArray[i].slice(1, wordArray[i].length));
     }
     return ret;
 }
@@ -89,7 +90,8 @@ function word_to_camelCase(wordArray) {
 
 function word_to_snake_case(wordArray) {
     let ret_array = word_to_uppercase(wordArray);
-    return ret_array.join("_");
+    let ret = ret_array.join("_");
+    return ret;
 }
 
 function shuffle_collection(collection) {
@@ -114,6 +116,7 @@ function generate_task(num_matches, f) {
     let target_type = f(generate_word(3 + document.nof1.new_random_integer(2)));
     let target_identifier = generate_word(3);
     let first_line = "TYPE" + target_type + "    " + f(target_identifier) + "    =    42;\n";
+    let dummy = f(target_identifier);
 
     let matches = [];
     for(let match = 1; match <= num_matches; match++) {
