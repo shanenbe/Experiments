@@ -65,3 +65,6 @@ Probably the big result of the study is: string composition is probably the wors
 
 ## 4. CamelCase, Snake_Case
 [click here start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2024_CamelCase_Underscore/index.html)
+
+## 5. Fractions
+[click here start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2024_Fractions/index.html)
