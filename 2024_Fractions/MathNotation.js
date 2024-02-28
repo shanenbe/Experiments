@@ -1,6 +1,7 @@
 // @ts-ignore
 let EXPERIMENT = Nof1;
-
+let MJ = MathJax;
+console.log("dummy");
 function graph_dictionary_function() {
     let result = {};
     for (let g of EXPERIMENT.graph_repository) {
@@ -88,7 +89,7 @@ function graph_dictionary_function() {
                 } else {
                     writer.print_html_on_stage("\\(" + solution_tree.generate_mathjax_code_string() + " = ?\\)" + debug_string);
                     // @ts-ignore
-                    MathJax.typeset();
+                    MJ.typeset();
                 }
             };
 
