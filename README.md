@@ -36,6 +36,11 @@ Number of repetitions: 5.
 
 The first variable is the main variable in the experiment (since it is about indented and non-indented code), the interaction between the latter ones is the most interesting one (because such interaction explains the differences between indented and non-indented code).
 
+There is predecessor of that experiment where manually chosen tasks were given to participants: 
+[Morzeck, Hanenberg, Werger, Gruhn, "Intendation in Source Code: A Randomized Control Trial on the Readability of Control Flows in Java Code with Large Effects", ICSoft 2023](https://doi.org/10.5220/0012087500003538)
+A preprint can be found [here]().
+
+
 ## 2. Indentation - JSON-Objects
 [click here start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2023_Indentation_JSON/index.html)
 
