@@ -40,6 +40,10 @@ There is predecessor of that experiment where manually chosen tasks were given t
 [Morzeck, Hanenberg, Werger, Gruhn, "Intendation in Source Code: A Randomized Control Trial on the Readability of Control Flows in Java Code with Large Effects", ICSoft 2023](https://doi.org/10.5220/0012087500003538)
 A preprint can be found [here]().
 
+## 1.1 Indentation - alternative style
+Derek assumed that a different code format style could matter. Here is the experiment.
+
+[click here start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2023_Indentation_Dereks_Hypothesis/index.html)
 
 ## 2. Indentation - JSON-Objects
 [click here start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2023_Indentation_JSON/index.html)
