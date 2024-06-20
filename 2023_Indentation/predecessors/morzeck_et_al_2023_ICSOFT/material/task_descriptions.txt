@@ -1,0 +1,13 @@
+1.1	IndentBracketMixed						
+1.2	IndentBracketNonSkippable							
+1.3	IndentBracketSkippable							
+2.1	IndentNoBracketMixed							
+2.2	IndentNoBracketNonSkippable							
+2.3	IndentNoBracketSkippable							
+3.1	NoIndentBracketMixed							
+3.2	NoIndentBracketNonSkippable							
+3.3	NoIndentBracketSkippable							
+4.1	NoIndentNoBracketMixed							
+4.2	NoIndentNoBracketNonSkippable							
+4.3	NoIndentNoBracketSkippable
+
