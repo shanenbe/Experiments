@@ -141,6 +141,3 @@ for(let c=0; c<all_statements_with_condition.length; c++) {
         read_indents_diffs[""+read_indent][""+diff] = [];
     read_indents_diffs[""+read_indent][""+diff].push(statement);
 }
-
-console.log(statements.length);
-console.log(all_statements_with_condition.length);
