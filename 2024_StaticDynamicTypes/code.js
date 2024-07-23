@@ -193,14 +193,13 @@ class ClassGenerator {
             'handleError',
             'parseData',
             'executeTask',
-            'processUserData',
-            'calculateTotalScore',
-            'formatOutputResult',
-            'fetchDataFromAPI',
             'handleUserInteraction',
             'analyzeDataResults',
-            'executeDatabaseQuery',
-            'generateUniqueIdentifier'
+            'clearCache',
+            'trackUserActivity',
+            'logErrorDetails',
+            'monitorSystemHealth'
+
             // Add more function names as needed
         ];
 
@@ -218,7 +217,7 @@ class ClassGenerator {
         }
 
 
-        console.log(classes.toString());
+       // console.log(classes.toString());
         // Beginn initialisierung erster Klasse
         let classCopy= [];
         // Nächste zu bearbeitende Klassen
@@ -229,13 +228,16 @@ class ClassGenerator {
         // Get the random number of iterations
         let iterations = this.getRandomIterations(4);
         // Loop using the random number of iterations
+        if (notation === "static" && iterations === 4 && difficulty === 5) {
+            iterations--;
+        }
         for (let i = 0; i < iterations; i++) {
             if(difficulty>0) {
                 let targetClass = this.removeRandomElement(classes);
-                let targetName = this.getRandomElement(lowercaseLetters);
+                let targetName = this.removeRandomElement(lowercaseLetters);
                 for (let i= 0; i< chosenClass.constr.parameters.length; i ++) {
                     while (targetName === chosenClass.constr.parameters[i].name) {
-                        targetName = this.getRandomElement(lowercaseLetters);
+                        targetName = this.removeRandomElement(lowercaseLetters);
                     }
                 }
                 chosenClass.constr.parameters.push(P(targetClass, targetName));
@@ -258,16 +260,17 @@ class ClassGenerator {
             // Fix Schwierigkeit zu hoch
             if (notation === "static" && (difficulty - 1 - iterations * 1) === 1) {
                 iterations++;
-                iterations++;
             }
             if (notation === "dynamic" && (difficulty - 2 - iterations * 1) === 2) {
                 iterations++;
                 iterations++;
             }
-            if (difficulty <= 2 && notation === "static") {
+            //3 und 5 instead?
+            if (difficulty <= 3 && notation === "static") {
                 iterations = (difficulty-1);
             }
-            if (difficulty <= 4 && notation === "dynamic") {
+            //3 und 5 instead?
+            if (difficulty <= 5 && notation === "dynamic") {
                 iterations = (difficulty-2);
             }
             //Drüfte nicht mehr triggern
@@ -277,7 +280,7 @@ class ClassGenerator {
 
             for (let i = 0; i < iterations; i++) {
                 let targetClass = this.removeRandomElement(classes);
-                let targetName = this.getRandomElement(lowercaseLetters);
+                let targetName = this.removeRandomElement(lowercaseLetters);
                 chosenClass.constr.parameters.push(P(targetClass, targetName));
                 chosenClass.constr.body.methodCalls.push(Ca(A(targetName), targetClass.methods[0], []));
                 nextClasses.push(targetClass);
@@ -347,7 +350,7 @@ class Interpreter {
 
     get_class(className) {
         if (className === null) {
-            throw "Cannot read property of null"
+            throw "Cannot read properties of null"
         }
         for(let i=0;  i < this.classes.length; i++) {
             if ((this.classes)[i].name === className)
@@ -476,8 +479,7 @@ class ConstructorCall extends Call {
 
     execute(frame) {
         if(this.className === null) {
-            // throw "Cannot read properties of null"
-
+           // throw "Cannot read properties of null"
         }
         let actual_parameters = frame.pop_actual_parameters(this.parameters.length);
         let myConstructor = this.get_class(frame).constr;
@@ -598,9 +600,9 @@ class MethodCall extends Call {
             let position =  frame.interpreter.call_stack.length-1;
             let tempClassName = frame.interpreter.call_stack [position].origin.className;
             let error = frame.interpreter.call_stack[frame.interpreter.call_stack.length-1].expressions[frame.interpreter.call_stack[frame.interpreter.call_stack.length-1].expressions.length-1].target_expression.name +
-                "." + frame.interpreter.call_stack[frame.interpreter.call_stack.length-1].expressions[frame.interpreter.call_stack[frame.interpreter.call_stack.length-1].expressions.length-1].name.name
-                + "<- cannot read property of " + target_object.clazz.name
-                + "<br/>" + "constructor " + tempClassName;
+            "." + frame.interpreter.call_stack[frame.interpreter.call_stack.length-1].expressions[frame.interpreter.call_stack[frame.interpreter.call_stack.length-1].expressions.length-1].name.name
+            + "<- cannot read property of " + target_object.clazz.name
+           + "<br/>" + "constructor " + tempClassName;
             let errorMessage = [];
             frame.interpreter.call_stack[frame.interpreter.call_stack.length-1].origin.print_call(errorMessage);
             let errorString = errorMessage.join("");
@@ -610,7 +612,7 @@ class MethodCall extends Call {
             }
             throw error
         }
-    }
+        }
 }
 
 class Class  {
@@ -842,15 +844,8 @@ function read_identifier(string_array) {
         if((this_token>='a' && this_token<='z') || this_token>='A' && this_token<='Z') {
             identifier.push(this_token);
         } else {
-
-            if(identifier.length<=0 )
+            if(identifier.length<=0)
                 throw "Invalid Identifier before: " + string_array.join('');
-            if (identifier.length > 1 && identifier.join('') !== "null") {
-                throw "Invalid identifier " + identifier.join('')
-            }
-            if (this_token === ",") {
-                throw "Missing )"
-            }
             else {
                 string_array.unshift(this_token);
                 return identifier.join("");
@@ -859,15 +854,12 @@ function read_identifier(string_array) {
     }
     if(identifier.length<=0)
         throw "No identifier";
-
     return identifier.join("");
 }
 
 function read_constructor_call_list(arr) {
-    if(arr.length<1) {
+    if(arr.length<1)
         throw "missing )";
-    }
-
     let parameters = [];
     let this_token = arr[0];
 
@@ -882,9 +874,7 @@ function read_constructor_call_list(arr) {
         }
 // this_token = arr.shift();
     }
-    if (arr.length === 0 && parameters.length> 0) {
-        throw "Missing )"
-    }
+
     if(arr.length <= 0)
         throw "invalid constructor call list";
 
@@ -897,15 +887,12 @@ function read_constructor_call(arr) {
         return new ConstructorCall(null, []);
     }
     let token = arr.shift();
-    if(token !== "(") {
-        arr.unshift(token);
-        throw "Missing ( before " + arr.join("") ;
-    }
+    if(token !== "(")
+
+        throw "Missing ( before )" + arr.join("") ;
+
     let parameters = read_constructor_call_list(arr);
     token = arr.shift();
-    if((token>='a' && token<='z') || token>='A' && token<='Z') {
-        throw "missing ,"
-    }
     if(token !== ")")
         throw "Missing )";
     return new ConstructorCall(identifier, parameters);
@@ -930,7 +917,7 @@ function translate_string_into_method_call(aString) {
 let experiment_configuration_function = (writer) => { return {
 
     experiment_name: "TestExperiment",
-    seed: "7",
+    seed: "1",
     introduction_pages: writer.stage_string_pages_commands([
         writer.convert_string_to_html_string(
             "Please, open the browser in fullscreen mode (probably by pressing [F11])."
@@ -954,12 +941,10 @@ let experiment_configuration_function = (writer) => { return {
     ]),
 
     post_questionnaire: [
-        Nof1.free_text("Name","What's your name?"),
         Nof1.free_text("Age","How old are you?"),
         Nof1.alternatives("Status","What is your current working status?",
             ["Undergraduate student (BSc not yet finished)", "Graduate student (at least BSc finished)", "PhD student", "Professional software developer", "Teacher", "Other"]),
-        Nof1.free_text("Experience","How many years of working experience in software industry to you have?"),
-        Nof1.free_text("LoC","How many lines of code do you think you write each day on average?"),
+        Nof1.free_text("Experience","How many years of working experience in software industry to you have?")
     ],
 
     layout: [
@@ -969,12 +954,12 @@ let experiment_configuration_function = (writer) => { return {
         },
         {
             variable: "difficulty_t",
-            treatments: ["5","7"]
+            treatments: ["5", "7"]
         },
         {
             variable: "diff",
             //geht bis 8
-            treatments: ["3","5"]
+            treatments: ["3", "5"]
         }
     ],
     repetitions: 3,
@@ -983,19 +968,19 @@ let experiment_configuration_function = (writer) => { return {
 
     task_configuration:    (t) => {
         let classes = new ClassGenerator().do_generate(t.treatment_combination[0].value, parseInt(t.treatment_combination[1].value), parseInt(t.treatment_combination[2].value));
-        console.log("TargetClass: " + classes.targetClass_name);
+       // console.log("TargetClass: " + classes.targetClass_name);
         t.do_print_task = () => {
             writer.clear_stage();
-            console.log(t.treatment_combination[0].value);
-            console.log(t.treatment_combination[1].value);
-            console.log(t.treatment_combination[2].value);
+          //  console.log(t.treatment_combination[0].value);
+           // console.log(t.treatment_combination[1].value);
+           // console.log(t.treatment_combination[2].value);
             // Difficulty runter damit Experiment schneller
             // writer.print_html_on_stage(t.treatment_combination[0].value);
             //writer.print_html_on_stage(t.treatment_combination[1].value);
             // writer.print_html_on_stage(t.treatment_combination[2].value);
             writer.print_html_on_stage("<h1>Generate the correct constructor call for the given target class</h1>");
             writer.print_html_on_stage("Target Class:  " + classes.targetClass_name);
-            console.log(get_class(classes.targetClass_name, classes.class_array).getSolution());
+           // console.log(get_class(classes.targetClass_name, classes.class_array).getSolution());
             let firstClasses = classes.class_array.slice(1, 4);
             let secondClasses = classes.class_array.slice(4, 7);
             let thirdClasses = classes.class_array.slice(7, 10);
@@ -1019,9 +1004,10 @@ let experiment_configuration_function = (writer) => { return {
         // zu jeder studie 3 scheißsätze
 
         t.accepts_answer_function = (given_answer) => {
-            if (given_answer === "a") {
-                return true;
-            }
+            //only active for testing
+            //  if (given_answer === "a") {
+            //      return true;
+            //  }
             given_answer = given_answer.split(" ").join("")
             return given_answer === t.expected_answer;
         };
@@ -1061,13 +1047,13 @@ let experiment_configuration_function = (writer) => { return {
                 }
                 // writer.set_focus_on_input();
             } else {
-                let interpreter = new Interpreter(classes.class_array, translate_string_into_method_call(given_answer));
-                try {
-                    interpreter.do_interpretation();
-                } catch (e) {
-                    if (given_answer.charAt(0) !== t.expected_answer.charAt(0) ) {
-                        writer.print_html_on_error("Not the correct target class!");
-                    } else {
+                    let interpreter = new Interpreter(classes.class_array, translate_string_into_method_call(given_answer));
+                    try {
+                        interpreter.do_interpretation();
+                    } catch (e) {
+                        if (given_answer.charAt(0) !== t.expected_answer.charAt(0) ) {
+                            writer.print_html_on_error("Not the correct target class!");
+                        } else {
                         writer.print_html_on_error(e);
 
                     }
