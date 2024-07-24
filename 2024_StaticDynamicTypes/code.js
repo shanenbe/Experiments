@@ -970,10 +970,11 @@ let experiment_configuration_function = (writer) => { return {
     ]),
 
     pre_run_training_instructions: writer.string_page_command(
+        writer.convert_string_to_html_string(
         "You entered the training phase.\n\n" +
         "You can turn on fullscreen mode by pressing [F11]\n\n" +
         "If necessary you can zoom in using [Ctrl]+mousewheel\n\n"
-        ),
+        )),
 
     pre_run_experiment_instructions: writer.string_page_command(
         writer.convert_string_to_html_string(
