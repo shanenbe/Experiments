@@ -180,7 +180,7 @@ class ClassGenerator {
         array.splice(randomIndex, 0, element);
     }
 
-    do_generate(notation, difficulty_t, diff) {
+    do_generate(notation, difficulty_t, diff, number) {
 
         let functionNames = [
             'calculateSum',
@@ -203,12 +203,14 @@ class ClassGenerator {
             // Add more function names as needed
         ];
 
-        let classes = this.generate_methods(functionNames);
+        let classes = this.generate_methods(functionNames, number);
 
         let lowercaseLetters = [
             'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
             'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
         ];
+        let classNames = new Set(classes.map(cls => cls.name.toLowerCase()));
+        lowercaseLetters = lowercaseLetters.filter(letter => !classNames.has(letter));
         let difficulty = 0;
         if (notation === "static") {
             difficulty = difficulty_t;
@@ -312,7 +314,7 @@ class ClassGenerator {
 
     }
 
-    generate_methods(functionNames) {
+    generate_methods(functionNames, number) {
         let alphabet = [
             'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
             'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
@@ -321,7 +323,7 @@ class ClassGenerator {
         // Liste mit Klassen am Ende
         let classes = [];
         // 10 Klassen mit jeweils einer Methode initialisieren
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < number; i++) {
             classes.push(new Class(this.removeRandomElement(alphabet),
                 Co([],
                     B([])
@@ -413,7 +415,7 @@ class Frame {
 
         )
         if (parameters.length > actual_parameters.length) {
-            throw "missing class in costructor call"
+            throw "missing class in constructor call"
         }
         if (parameters.length < actual_parameters.length) {
             throw "Too many parameters in constructor call"
@@ -876,7 +878,7 @@ function read_constructor_call_list(arr) {
     }
 
     if(arr.length <= 0)
-        throw "invalid constructor call list";
+        throw "missing )";
 
     return parameters;
 }
@@ -913,6 +915,8 @@ function translate_string_into_method_call(aString) {
     return constructor_call;
 }
 
+let testClassesStatic = new ClassGenerator().do_generate("static", 1, 0, 4);
+let testClassesDynamic = new ClassGenerator().do_generate("dynamic", 1, 0, 4);
 
 let experiment_configuration_function = (writer) => { return {
 
@@ -920,14 +924,54 @@ let experiment_configuration_function = (writer) => { return {
     seed: "1",
     introduction_pages: writer.stage_string_pages_commands([
         writer.convert_string_to_html_string(
-            "Please, open the browser in fullscreen mode (probably by pressing [F11])."
+            "In the following experiment you will be presented with the task to generate constructor calls in static and dynamic programming languages.\n\n" +
+            "The syntax for initializing a constructor call is the same in both languages: Simply enter the class name followed by opening and closing parenthesis.\n\n" +
+            "In order for an answer to be accepted the correct target class needs to be initialized with all required parameters.\n\n" +
+            "The experiment does not care for whitespaces and will provide you with error messages typical for the language type.\n\n"+
+            "In order to initialize the class " + testClassesStatic.class_array[0].name + " in this static language example you would need to type: " + testClassesStatic.class_array[0].name+ "("+ testClassesStatic.class_array[2].name +"(), " + testClassesStatic.class_array[1].name + "())\n\n" +
+            "Target class: " + testClassesStatic.class_array[0].name +"\n\n" +
+            testClassesStatic.class_array[0].print_into_string("static") +
+            testClassesStatic.class_array[1].print_into_string("static") +
+            testClassesStatic.class_array[2].print_into_string("static") +
+            testClassesStatic.class_array[3].print_into_string("static")
+        ),
+        writer.convert_string_to_html_string(
+            "For the dynamically typed language the only difference in the information presented is that given parameters only consist of a name.\n\n" +
+            "To find out the type of a parameter you instead have to take a look at the used method call inside the constructor and figure out which class the method belongs to.\n\n" +
+            "In order to initialize the class " + testClassesDynamic.class_array[0].name + " in this static language example you would need to type: " + testClassesDynamic.class_array[0].name+ "("+ testClassesDynamic.class_array[1].name +"(), " + testClassesDynamic.class_array[2].name + "())\n\n" +
+            "Target class: " + testClassesDynamic.class_array[0].name +"\n\n" +
+            testClassesDynamic.class_array[0].print_into_string("dynamic") +
+            testClassesDynamic.class_array[1].print_into_string("dynamic") +
+            testClassesDynamic.class_array[2].print_into_string("dynamic") +
+            testClassesDynamic.class_array[3].print_into_string("dynamic")
+        ),
+        writer.convert_string_to_html_string(
+            "In dem folgenden Experiment wird Ihnen die Aufgabe gestellt statische und dynamische constructor calls zu generieren.\n\n" +
+            "Die Syntax für die Initialisierung von consturctor calls ist identisch für beide Sprachen: Geben Sie dafür den Klassennamen, gefolgt von öffnenden und schließenden Klammern in die Antwortbox ein.\n\n" +
+            "Damit eine Antwort als korrekt akzeptiert wird, muss der constructor call die Zielklasse ansprechen, sowie alle notwendigen Parameter enthalten.\n\n" +
+            "Innerhalb der Antwort sind leerzeichen irrelevant, gegebene falsche Antworten sorgen zusätzlich für die Ausgabe von Fehlermeldungen welche typisch für die jeweilige Sprache sind. \n\n"+
+            "Um die Klasse " + testClassesStatic.class_array[0].name + " in dieser Aufgabe vom statischen Sprachtyp zu initialisieren muss folgender Text als Antwort abgegeben werden: " + testClassesStatic.class_array[0].name+ "("+ testClassesStatic.class_array[2].name +"(), " + testClassesStatic.class_array[1].name + "())\n\n" +
+            "Target class: " + testClassesStatic.class_array[0].name +"\n\n" +
+            testClassesStatic.class_array[0].print_into_string("static") +
+            testClassesStatic.class_array[1].print_into_string("static") +
+            testClassesStatic.class_array[2].print_into_string("static") +
+            testClassesStatic.class_array[3].print_into_string("static")
+        ),
+        writer.convert_string_to_html_string(
+            "Für Aufgaben des dynamischen Sprachtypes liegt der einzige Unterschied in der dargestellten Information darin, dass Parameter nur noch aus Namen bestehen und keine Information mehr über ihren Typen enthalten.\n\n" +
+            "Um den Typ eines Parameters herauszufinden muss nun darauf geachtet werden, welche Methode der Parameter innerhalb des constructor calls benutzt.\n\n" +
+            "Um die Klasse " + testClassesDynamic.class_array[0].name + " in der dynamischen Sprache zu initialisieren, muss folgende Antwort abgegeben werden: " + testClassesDynamic.class_array[0].name+ "("+ testClassesDynamic.class_array[1].name +"(), " + testClassesDynamic.class_array[2].name + "())\n\n" +
+            "Target class: " + testClassesDynamic.class_array[0].name +"\n\n" +
+            testClassesDynamic.class_array[0].print_into_string("dynamic") +
+            testClassesDynamic.class_array[1].print_into_string("dynamic") +
+            testClassesDynamic.class_array[2].print_into_string("dynamic") +
+            testClassesDynamic.class_array[3].print_into_string("dynamic")
         )
     ]),
 
     pre_run_training_instructions: writer.string_page_command(
-        writer.convert_string_to_html_string(
-            "You entered the training phase."
-        )),
+        "You entered the training phase.\n\n"
+        ),
 
     pre_run_experiment_instructions: writer.string_page_command(
         writer.convert_string_to_html_string(
@@ -936,7 +980,15 @@ let experiment_configuration_function = (writer) => { return {
 
     finish_pages: writer.stage_string_pages_commands([
         writer.convert_string_to_html_string(
-            "Almost done. When you press [Enter], the experiment's data will be downloaded."
+            "Almost done. When you press [Enter], the experiment's data will be downloaded. \n\n" +
+            "Please fill out the following form: https://github.com/shanenbe/Experiments/blob/main/2024_StaticDynamicTypes/informationsheet.pdf\n\n" +
+            "Download and send both the 'informationsheet.pdf' and 'experimentdata.csv' in one singular mail to stefan.hanenberg@uni-due.de\n\n" +
+            "We are only allowed to evaluate your data if both the data and signed information sheet are sent together. Thank you for your time!\n\n" +
+            "\n\n" +
+            "Bitte füllen Sie folgende Einverständniserklärung aus: https://github.com/shanenbe/Experiments/blob/main/2024_StaticDynamicTypes/informationsheet.pdf\n\n" +
+            "Downloaden und senden Sie bitte sowohl 'informationsheet.pdf' als auch 'experimentdata.csv' in einer einzigen E-Mail an: stefan.hanenberg@uni-due.de\n\n" +
+            "Wir dürfen Ihre Daten nur auswerten, falls sowohl die Einverständniserklärung als auch die Experimentdaten gemeinsam verschickt werden. Vielen Dank für Ihre Zeit!\n\n"
+
         )
     ]),
 
@@ -967,7 +1019,7 @@ let experiment_configuration_function = (writer) => { return {
     measurement: Nof1.Time_to_finish(Nof1.text_input_experiment),
 
     task_configuration:    (t) => {
-        let classes = new ClassGenerator().do_generate(t.treatment_combination[0].value, parseInt(t.treatment_combination[1].value), parseInt(t.treatment_combination[2].value));
+        let classes = new ClassGenerator().do_generate(t.treatment_combination[0].value, parseInt(t.treatment_combination[1].value), parseInt(t.treatment_combination[2].value), 10);
        // console.log("TargetClass: " + classes.targetClass_name);
         t.do_print_task = () => {
             writer.clear_stage();
@@ -978,6 +1030,9 @@ let experiment_configuration_function = (writer) => { return {
             // writer.print_html_on_stage(t.treatment_combination[0].value);
             //writer.print_html_on_stage(t.treatment_combination[1].value);
             // writer.print_html_on_stage(t.treatment_combination[2].value);
+            if (t.is_training) {
+                writer.print_string_on_stage("You are still inside the training phase. If you would like to start the experiment press [Esc] and confirm with [E](capital E!). \n\n")
+            }
             writer.print_html_on_stage("<h1>Generate the correct constructor call for the given target class</h1>");
             writer.print_html_on_stage("Target Class:  " + classes.targetClass_name);
            // console.log(get_class(classes.targetClass_name, classes.class_array).getSolution());
@@ -1006,8 +1061,8 @@ let experiment_configuration_function = (writer) => { return {
         t.accepts_answer_function = (given_answer) => {
             //only active for testing
             //  if (given_answer === "a") {
-            //      return true;
-            //  }
+            //    return true;
+            //}
             given_answer = given_answer.split(" ").join("")
             return given_answer === t.expected_answer;
         };
@@ -1036,6 +1091,9 @@ let experiment_configuration_function = (writer) => { return {
             if (t.treatment_combination[0].value === "static") {
                 // t.print_task();
                 try {
+                    if (given_answer.charAt(0) !== t.expected_answer.charAt(0) ) {
+                        writer.print_html_on_error("Not the correct target class!");
+                    }
                     type_check_constructor_call(translate_string_into_method_call(given_answer), classes.class_array);
                 } catch (e) {
                     try {
@@ -1065,7 +1123,12 @@ let experiment_configuration_function = (writer) => { return {
 
         t.do_print_after_task_information = () => {
             writer.clear_stage();
-            writer.print_string_on_stage("Ok, done. Press [Enter] to see the next task");
+            if (t.is_training) {
+                writer.print_string_on_stage("You are still inside the training phase. If you would like to start the experiment press [Esc] and confirm with [E](capital E!). \n\n")
+                writer.print_string_on_stage("If you would like to continue training press [Enter] to see the next task");
+            } else {
+                writer.print_string_on_stage("Ok, done. Press [Enter] to see the next task");
+            }
         }
     }
 }};
