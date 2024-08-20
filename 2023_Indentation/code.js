@@ -182,6 +182,8 @@ document.experiment_definition(
         experiment_name:"Stefan First Trial",
         seed:"42",
         introduction_pages:["Thanks for participating in the experiment on indentation in source code.\n\n" +
+                            "Please note, that the experiment is already finished, i.e., there is no need to participate from a research perspective.\n\n" +
+                            "I still think that participating in the experiment gives you a feeling of the effect of indentation.\n\n" +
                             "Running the experiment takes about 20 minutes.\n\n" +
                             "In the following, (nested) if-statements will be shown to you. " +
                             "The question for each statement is, what it returns. " +
@@ -205,7 +207,10 @@ document.experiment_definition(
                             "Press [Return] to enter the training phase."],
         pre_run_instruction:"Please put your fingers on the number buttons.\n\nWhen you press [Enter] the first task will be shown.",
         finish_pages:["Thanks for participating. When you press [Enter], the experiment's data will be downloaded.\n\n" +
-                      "If you want to contribute to research, you can send the downloaded file to stefan.hanenberg@uni-due.de."],
+                      "Originally, when the experiment was executed, the participants were requested to send the data to stefan.hanenberg@uni-due.de.\n\n" +
+                      "This is no longer necessary -- in case you are interested in your results, you can still send then.\n\n" +
+                      "Best,\n" +
+                      "Stefan"],
         layout:[
             {variable:"Indentation",treatments:["indented", "non-indented"]},
             {variable:"Read_Indent",treatments:["4", "6", "8"]},
