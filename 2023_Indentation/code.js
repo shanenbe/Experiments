@@ -208,7 +208,7 @@ document.experiment_definition(
         pre_run_instruction:"Please put your fingers on the number buttons.\n\nWhen you press [Enter] the first task will be shown.",
         finish_pages:["Thanks for participating. When you press [Enter], the experiment's data will be downloaded.\n\n" +
                       "Originally, when the experiment was executed, the participants were requested to send the data to stefan.hanenberg@uni-due.de.\n\n" +
-                      "This is no longer necessary -- in case you are interested in your results, you can still send then.\n\n" +
+                      "This is no longer necessary -- in case you are interested in your results, you can still send them.\n\n" +
                       "Best,\n" +
                       "Stefan"],
         layout:[
