@@ -28,7 +28,7 @@ This experiment is a remake of the experiment described in:
 
 [Hanenberg, Morzeck, Gruhn, "Indentation and reading time: a randomized control trial on the differences between generated indented and non-indented if-statements", Empirical Software Engineering, Vol 29, No 5, 2024.](https://doi.org/10.1007/s10664-024-10531-y)
 
-It checks the effect of indentation on (nested) if-statements (each shown if-statement consists of 7 (nested) if-statements).
+It checks the effect of indentation on (nested) if-statements (each shown if-statement consists of 7 (nested) if-statements) (see [here](./Indentation/README.md) for more details)
 
 The experiment is a 2x3x3 N-of-1 trial (with 5 repetitions per treatment combination) with the following independent variables:
 
