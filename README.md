@@ -20,8 +20,7 @@ In case you have questions or comments, just drop me an email.
 
 
 ## 1. Indentation - nested ifs
-The experiment should take (without training) about 20-30 minutes. [click here start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2023_Indentation/index.html), 
-
+The experiment should take (without training) about 20-30 minutes. [click here start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2023_Indentation/index.html). 
 The experiment is a remake of the experiment described in:
 
 [Hanenberg, Morzeck, Gruhn, "Indentation and reading time: a randomized control trial on the differences between generated indented and non-indented if-statements", Empirical Software Engineering, Vol 29, No 5, 2024.](https://doi.org/10.1007/s10664-024-10531-y)
@@ -32,8 +31,7 @@ There is a predecessor of that experiment where manually chosen tasks were given
 
 
 ## 2. Indentation - JSON-Objects
-The experiment should take (without training) about 20-30 minutes. [click here start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2023_Indentation_JSON/index.html)
-
+The experiment should take (without training) about 20-30 minutes. [click here start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2023_Indentation_JSON/index.html) 
 The experiment tests the readability time of JSON-objects by asking the single quesion "how many fields does the outermost object have?". The experiment is described in:
 
 [Hanenberg,Morzeck, Werger, Gries, Gruhn, "Indentation and Reading Time: A Controlled Experiment on the Differences Between Generated Indented and Non-indented JSON Objects", Communications in Computer and Information Science 2104, Springer, 2024, pp. 50-75.](https://doi.org/10.1007/978-3-031-61753-9_4)
