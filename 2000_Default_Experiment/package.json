@@ -1,0 +1,23 @@
+{
+  "name": "Experiments",
+  "version": "1.0.0",
+  "main": "Loader.js",
+  "type": "module",
+  "scripts": {
+    "build TestExperiment": "webpack --config webpack.config.cjs"
+  },
+
+  "dependencies": {
+    "@types/node": "^20.6.0",
+    "browser-resolve": "^2.0.0",
+    "collect.js": "^4.36.1",
+    "esbuild": "0.19.3",
+    "html-webpack-plugin": "^5.5.3",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.2.2",
+    "util": "^0.12.5",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+
+}
