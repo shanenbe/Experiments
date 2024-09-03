@@ -1,0 +1,18 @@
+{
+  "compileOnSave": true,
+
+
+  "compilerOptions": {
+//    "moduleResolution": "node",
+    "target": "es6",
+    //    "outDir": "build",
+    "allowJs": true,
+    "sourceMap": true,
+
+    "noImplicitAny": true,
+    //    "isolatedModules": true,
+
+  }
+
+
+}
