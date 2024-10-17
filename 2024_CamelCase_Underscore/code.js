@@ -188,6 +188,7 @@ document.nof1.experiment_definition(
         layout: [
             {variable: "Notation", treatments: ["CamelCase", "Snake_Case"]},
             {variable: "Occurances", treatments: ["1", "2", "3"]},
+            {variable: "Occurances", treatments: ["dummy"]},
         ],
         repetitions: 15,                    // Anzahl der Wiederholungen pro Treatmentcombination
         accepted_responses: ["1", "2", "3"],
@@ -208,5 +209,6 @@ document.nof1.experiment_definition(
 
         }
     }
+
 );
 

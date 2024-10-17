@@ -3,16 +3,30 @@
 
 
   "compilerOptions": {
-//    "moduleResolution": "node",
-    "target": "es6",
-    //    "outDir": "build",
+    "moduleResolution": "node",
+    "target": "ES6",
     "allowJs": true,
     "sourceMap": true,
+    "declaration": true,
 
-    "noImplicitAny": true,
-    //    "isolatedModules": true,
+    "noImplicitAny": false,
+//    "isolatedModules": true,
+    "rootDirs": [
+        "./"
+    ],
 
-  }
+    "paths": {
+      "@experimentation/*": ["C:\\Users\\Stefan\\sciebo\\Development\\Webstorm\\Experimentation\\*"]
+    }
 
+  },
+
+  "include": ["*.ts", "C:\\Users\\Stefan\\sciebo\\Development\\Webstorm\\Experimentation\\**\\*.ts"],
+
+  "exclude": [
+    "node_modules"
+  ],
+  "esModuleInterop": true
+  //    "allowSyntheticDefaultImports": true
 
 }

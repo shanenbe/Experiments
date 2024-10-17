@@ -1,1 +1,0 @@
-(()=>{"use strict";console.log("Dummy -> Target"),new class{print(){console.log("dummy")}},console.log("Loader.js")})();
