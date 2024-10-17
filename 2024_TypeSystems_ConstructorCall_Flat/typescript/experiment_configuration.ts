@@ -1,6 +1,7 @@
 import {BROWSER_EXPERIMENT} from "../../modules/Experimentation/Browser_Output_Writer.js";
 import {
-    Experiment_Output_Writer, random_array_element,
+    alternatives,
+    Experiment_Output_Writer, free_text, information, random_array_element,
     SET_SEED,
     text_input_experiment,
     Time_to_finish
@@ -70,11 +71,52 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
             "You entered the experiment phase.\n\n"
         )),
 
+    post_questionnaire           :   [
+        alternatives("Status","What is your current working status?",
+            ["Undergraduate student (BSc not yet finished)", "Graduate student (at least BSc finished)", "PhD student", "Professional software developer", "Teacher", "Other"]),
+
+        alternatives("Studies","In case you study, what's your subject?",
+            ["I do not study", "Computer science", "computer science related (such as information systems, aka WiInf)", "something else in natural sciences", "something else"]),
+
+        alternatives("LOCExperience","What describes your programming background best?",
+            ["I never program", "I rarely program", "I write some LOC from time to time", "I frequently write code", "I write code almost every day"]),
+
+        alternatives("YearsOfExperience", "How many years of experience do you have in software industry?",
+            ["none", "less than or equal 1 year", "more than 1 year, but less than or equal 3 years", "more than 3 years, but less than or equal 5 year", "more than 5 years"]),
+
+        alternatives("impression", "What statement describes " +
+            "                       best your impression \n\ of the experiment?", [
+                                                                                "I do not think that there was a difference between static and dynamic types",
+                                                                                "Dynamic types made it slightly easier for me",
+                                                                                "Dynamic types made it much easier for me",
+                                                                                "Static types made it slightly easier for me",
+                                                                                "Static types made it much easier for me",
+                                                                              ]),
+
+        alternatives("preference", "What kinds of language do you prefer?", [
+                                                                                "Slightly rather dynamically typed languages",
+                                                                                "Slightly statically typed languages",
+                                                                                "Definitively dynamically typed languages",
+                                                                                "Definitively statically typed languages",
+                                                                                "I don't think typing matters much"
+        ]),
+        alternatives("possibleEffect", "Do you think participating in the experiment changed your perspective in type systems?", [
+            "Rather no",
+            "Rather yes",
+            "Definitively no",
+            "Definitively es",
+            "I don't know"
+        ]),
+
+    ],
+
     finish_pages: [
         writer.string_page_command(
             writer.convert_string_to_html_string(
                 "Almost done. Next, the experiment data will be downloaded (after pressing [Enter]). Please, send the " +
-                "downloaded file to the experimenter (stefan.hanenberg@uni-due.de).\n\n" +
+                "downloaded file to the experimenter (stefan.hanenberg@uni-due.de). By sending that mail, you agree that " +
+                "your (anonymized) data will be used for scientific analyses where your data (together with others in an " +
+                "anonymized way) will be published.\n\n" +
                 "After sending your email, you can close this window.\n\n" +
                 "Many thanks for participation."
             )
@@ -86,12 +128,14 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
         { variable: "Number_of_terms",  treatments: ["3", "5", "7"]},
     ],
 
-    repetitions: 2, //CATALAN_GRAPHS.length,
+    repetitions: 2,
 
     measurement: Time_to_finish(text_input_experiment),
 
     training_configuration: {
-        fixed_treatments: [["types", "7"], ["no_types", "5"]],
+        fixed_treatments:               [
+                                            ["types", "7"], ["no_types", "5"]
+                                        ],
         can_be_cancelled: false,
         can_be_repeated: false
     },
