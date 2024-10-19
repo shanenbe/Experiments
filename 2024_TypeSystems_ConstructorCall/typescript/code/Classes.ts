@@ -70,4 +70,48 @@ export class Classes {
     number_of_classes() {
         return this.class_definitions.length;
     }
+
+    html_table_string(num_columns, with_types:boolean) {
+        let arr = ["<table style='border: 1px solid black;'>"];
+        let counter = 0;
+
+        while(counter < this.class_definitions.length) {
+            arr.push("<tr style=\"vertical-align:top\">");
+            for(let column = 0; column < num_columns && counter < this.class_definitions.length; column++) {
+                if(this.class_definitions[counter].class_name==="Target") {
+                    arr.push("<td colspan='2' style='border: 1px solid black;'>");
+                } else {
+                    arr.push("<td style='border: 1px solid black;'>");
+                }
+                this.class_definitions[counter].print_html_into_array(arr, this, with_types);
+                arr.push("</td>");
+                counter++;
+            }
+            arr.push("</tr>\n");
+        }
+        this.sort_class_definitions();
+
+        let stream = arr.join("");
+        console.log("dummy print_into_html_table()");;
+
+
+        return stream;
+    }
+
+    sort_class_definitions() {
+        this.class_definitions.sort((c1: Class_Definition, c2: Class_Definition) => {
+                if (c1.class_name === "Target") return 1;
+                if (c2.class_name === "Target") return -1;
+
+                return (c1.class_name < c2.class_name)
+                    ? -1
+                    : ((c1.class_name > c2.class_name)
+                            ? 1
+                            : 0
+                    );
+            }
+        );
+        let target = this.class_definitions.pop();
+        this.class_definitions.splice(10, 0, target);
+    }
 }

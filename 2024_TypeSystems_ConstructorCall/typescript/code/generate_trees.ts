@@ -1,9 +1,9 @@
-import {Tree} from "./Tree.js";
+import {Tree} from "../../../modules/graphs_n_trees/Tree.js";
 
 export let ALL_GENERATED_TREES = {};
 export let ALL_INTEGER_PARTITIONS_CACHE = {};
 
-export function gen_trees(node_list) {
+export function gen_trees(list_of_number_of_nodes) {
 
     function generate_trees(number_of_nodes) {
 
@@ -77,7 +77,7 @@ export function gen_trees(node_list) {
     }
 
     let trees = {};
-    for(let c of node_list) {
+    for(let c of list_of_number_of_nodes) {
         trees[c] = generate_trees(c);
     }
     return trees;

@@ -2,110 +2,64 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Software-Science.org</title>
-
-<!--    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>-->
-    <script>
-        window.MathJax = {
-            loader: {load: ['[tex]/color']},
-            tex: {packages: {'[+]': ['color']}}
-        };
-    </script>
-    <script id="MathJax-script"
-            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-
-    </script>
+    <title>Software-Science.org - Indentation</title>
 
     <style>
 
-        /*body {*/
-        /*    padding: 0;*/
-        /*    margin: 0*/
-        /*}*/
-
-        body .topmenu {
-            position: sticky;
-            top: 0;
-            margin: 0;
-            width: 100%;
-            /*right: 0;*/
+        main {
             padding: 0px;
             background: lightblue;
             text-align: center;
-            /*z-index: 100;*/
         }
 
-        body .topmenu h1 {
+        menu {
+            background-color: lightblue;
+            position: fixed;
+            padding-left:0;
+            padding-right: 0;
+            bottom: 0;
+            margin: 0;
+            left: 0;
+            right: 0;
+
+        }
+
+        main h1 {
             margin:0;
-            padding: 0px;
         }
 
-        body .topmenu h2 {
+        main h2 {
             font-weight: lighter;
             text-align: center;
             margin:0;
             font-size: 80%;
-            padding: 0px;
         }
 
-        body .topmenu .state {
+        simplecode {
             font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
-            position:fixed;
-            top:10px;
-            right: 10px;
         }
 
-        body .topmenu .task {
+        sc {
+            background-color:#EEEEEE;
+            font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
+        }
+        justtest {}
+
+        TASK {
             font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
             position:fixed;
             top:30px;
             right: 10px;
         }
 
-        body .navigation {
-            background-color: lightblue;
-            position: fixed;
-            padding-left:0;
-            padding-right: 0;
-            bottom: 0;
-            margin: 0;
-            left: 0;
-            right: 0;
-        }
-
-        body .bottommenu {
-            background-color: lightblue;
-            position: fixed;
-            padding-left:0;
-            padding-right: 0;
-            bottom: 0;
-            margin: 0;
-            left: 0;
-            right: 0;
-        }
-
-        body .stage {
-            /*margin:10px;*/
-            /*text-align: center;*/
-        }
-
-        body .stage .sourcecode {
+        STATE {
             font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
+            position:fixed;
+            top:10px;
+            right: 10px;
         }
 
-        body .stage .input {
-            width: 300px;
-        }
-
-        body .stage_error {
-            margin:10px;
-            color: red;
-        }
-
-        body .stage_msg {
-            margin:10px;
-        }
+        STAGE {}
 
     </style>
 
@@ -113,32 +67,31 @@
 </head>
 <body>
 
-<div class="topmenu">
-    <h1>software-science.org</h1>
-    <h2>The place where software experiments live</h2>
-    <div class = "state" id="STATE">Currently loading page</div>
-    <div class = task id="TASK">Currently loading page</div>
-</div>
-<div ID="STAGE_CONTAINER">
-    <div class="stage" ID="STAGE">
-        Please wait. Generating the experiment takes up to one minute.
-    </div>
-    <div class="stage_error" ID="STAGE_ERROR"></div>
-    <div class="stage_msg" ID="STAGE_MSG"></div>
-</div>
-<div class="navigation">Some information</div>
-<div class="bottommenu">[Impressum]</div>
+<main>
+    <h1><simplecode>software-science.org</simplecode></h1>
+    <h2><simplecode>The place where software experiments live</simplecode></h2>
+</main>
+<MENU></MENU>
+<h1>Some N-of-1 Trials for Programming / Source Code</h1>
+This is just a set of N-of-1 experiments that you can run on your own.
 
-<script>
-    let Nof1 = {};
+Here are the experiments you can run directly online:
+<ul>
+	<li><a href="https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2023_Indentation/index.html">Indentation - Check out what the effect of indentation is.</a></li>
+</ul>
 
-</script>
+<p>You can access the code for each experiment under the public git repo: <a href="https://github.com/shanenbe/Experiments">https://github.com/shanenbe/Experiments</a>
+<p>In case you want to know more about N-of-1 trials in software science, check out this pub:
 
-<script src="./nof1experimentation.js"></script>
-<script src="experiment_code.js"></script>
-<script src="experiment_configuration.ts"></script>
-<script src="Require_Test.js"></script>
+<p>
+<ul>
+	<li><a href="https://doi.org/10.1007/s10664-021-10077-3">
+		Hanenberg, Mehlhorn, "Two N-of-1 self-trials on readability differences between anonymous inner classes (AICs) and lambda expressions (LEs) on Java code snippets",  Empir. Softw. Eng. 27(2): 33 (2022)
+	</a></li>
+</ul>
+<p>In case you have questions or comments, just drop me an email.
 
+<p><a href="https://sites.google.com/site/stefanhanenberg/">-Stefan</a>
 
 </body>
 </html>
