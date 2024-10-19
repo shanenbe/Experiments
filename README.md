@@ -37,8 +37,8 @@ The experiment tests the readability time of JSON-objects by asking the single q
 [Hanenberg,Morzeck, Werger, Gries, Gruhn, "Indentation and Reading Time: A Controlled Experiment on the Differences Between Generated Indented and Non-indented JSON Objects", Communications in Computer and Information Science 2104, Springer, 2024, pp. 50-75.](https://doi.org/10.1007/978-3-031-61753-9_4)
 
 ## 3. Type Systems - constructor calls
-3.1 Flat experiment: [click here start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2024_TypeSystems_ConstructorCall_Flat/index.html)
-3.2 Hierarchical experiment: [click here start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2024_TypeSystems_ConstructorCall/index.html)
+- Flat experiment: [click here start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2024_TypeSystems_ConstructorCall_Flat/index.html)
+- Hierarchical experiment: [click here start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2024_TypeSystems_ConstructorCall/index.html)
 
 
 ## 3. Strings with Questionmarks: Backslash, Composition, Containment
