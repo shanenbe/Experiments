@@ -25,7 +25,7 @@ let TREES = {
 
 let experiment_configuration_function = (writer: Experiment_Output_Writer) => { return {
 
-    experiment_name: "TestExperiment",
+    experiment_name: "TypeSystems-ConstructorCall-Flat",
     seed: SEED,
 
     introduction_pages: writer.stage_string_pages_commands([
