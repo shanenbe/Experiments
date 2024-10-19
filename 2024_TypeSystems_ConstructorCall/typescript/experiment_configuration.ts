@@ -68,7 +68,7 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
 
     pre_run_experiment_instructions: writer.string_page_command(
         writer.convert_string_to_html_string(
-            "You entered the experiment phase. Now, it should take probably 5-7 minutes until the end of the experiment."
+            "You entered the experiment phase. Now, it should take probably 8-12 minutes until the end of the experiment."
         )),
 
     post_questionnaire           :   [
