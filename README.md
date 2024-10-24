@@ -19,7 +19,8 @@ In case you have questions or comments, just drop me an email.
 -Stefan
 
 
-## 1. Indentation - nested ifs
+## 1. Indentation in Source Code 
+### 1.1 Nested ifs
 [[click here start the experiment]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2023_Indentation/index.html) The experiment should take (without training) about 20-30 minutes. 
 It is is a remake of the experiment described in:
 
@@ -29,8 +30,7 @@ There is a predecessor of that experiment where manually chosen tasks were given
 
 [Morzeck, Hanenberg, Werger, Gruhn, "Intendation in Source Code: A Randomized Control Trial on the Readability of Control Flows in Java Code with Large Effects", ICSoft 2023](https://doi.org/10.5220/0012087500003538)
 
-
-## 2. Indentation - JSON-Objects
+### 1.2 JSON-Objects
 The experiment should take (without training) about 20-30 minutes. [click here start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2023_Indentation_JSON/index.html) 
 The experiment tests the readability time of JSON-objects by asking the single quesion "how many fields does the outermost object have?". The experiment is described in:
 

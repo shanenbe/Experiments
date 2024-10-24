@@ -1,4 +1,4 @@
-import {Tree} from "../../../modules/graphs_n_trees/Tree.js";
+import {Tree} from "../../../N-of-1-Experimentation/modules/graphs_n_trees/Tree.js";
 
 export let ALL_GENERATED_TREES = {};
 export let ALL_INTEGER_PARTITIONS_CACHE = {};

@@ -1,13 +1,13 @@
-import {BROWSER_EXPERIMENT} from "../../modules/Experimentation/Browser_Output_Writer.js";
+import {BROWSER_EXPERIMENT} from "../../N-of-1-Experimentation/modules/Experimentation/Browser_Output_Writer.js";
 import {
     alternatives,
     Experiment_Output_Writer, free_text, information, random_array_element,
     SET_SEED,
     text_input_experiment,
     Time_to_finish
-} from "../../modules/Experimentation/Experimentation.js";
-import {Task} from "../../modules/Experimentation/Task.js";
-import {generate_flat_trees, generate_trees} from "../../modules/graphs_n_trees/Tree.js";
+} from "../../N-of-1-Experimentation/modules/Experimentation/Experimentation.js";
+import {Task} from "../../N-of-1-Experimentation/modules/Experimentation/Task.js";
+import {generate_flat_trees, generate_trees} from "../../N-of-1-Experimentation/modules/graphs_n_trees/Tree.js";
 import {generate_classes_from_tree} from "./code/generate_classes_from_tree.js";
 import {call_string} from "./code/Parser.js";
 import {as_constructor_call} from "./code/convert_tree_to_constructor_call.js";

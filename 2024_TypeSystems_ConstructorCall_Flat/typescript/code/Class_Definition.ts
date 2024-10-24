@@ -1,5 +1,5 @@
 import {Classes} from "./Classes.js";
-import {do_random_array_sort} from "../../../modules/Experimentation/Experimentation.js";
+import {do_random_array_sort} from "../../../N-of-1-Experimentation/modules/Experimentation/Experimentation.js";
 
 export class Class_Definition {
     class_name:string;

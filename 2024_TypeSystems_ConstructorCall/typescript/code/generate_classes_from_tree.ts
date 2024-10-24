@@ -1,12 +1,12 @@
 import {Class_Definition} from "./Class_Definition.js";
 import {Classes} from "./Classes.js";
-import {Tree} from "../../../modules/graphs_n_trees/Tree.js";
+import {Tree} from "../../../N-of-1-Experimentation/modules/graphs_n_trees/Tree.js";
 import {
     do_random_array_sort,
     random_array_element,
     random_integer_up_to_excluding
-} from "../../../modules/Experimentation/Experimentation.js";
-import {Nouns} from "../../../modules/Words/Nouns.js";
+} from "../../../N-of-1-Experimentation/modules/Experimentation/Experimentation.js";
+import {Nouns} from "../../../N-of-1-Experimentation/modules/Words/Nouns.js";
 
 export function generate_classes_from_tree(tree:Tree, number_of_classes: number):Classes {
 
