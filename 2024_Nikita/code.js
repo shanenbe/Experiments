@@ -25,7 +25,7 @@ document.experiment_definition(
     {
         experiment_name:"NikitasExperiment",
         seed:"42",
-        introduction_pages:["Hi, this is Nikita's experiment",
+        introduction_pages:["Hi, this is Nikita's real experiment",
 
                             "Do identifier stuff.\n\n" +
                             "Press [Return] to enter the training phase."],
