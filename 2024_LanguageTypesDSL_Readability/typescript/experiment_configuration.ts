@@ -13,24 +13,24 @@ import {call_string} from "./code/Parser.js";
 import {as_constructor_call} from "./code/convert_tree_to_constructor_call.js";
 import {Constructor_Call} from "./code/Constructor_Call.js";
 
-let SEED = "666";
+let SEED = "42";
 
 SET_SEED(SEED);
 
 let TREES = {
-    1: generate_flat_trees(2),
-    3: generate_flat_trees(4),
-    5: generate_flat_trees(6)
+    1: generate_trees(2),
+    3: generate_trees(4),
+    5: generate_trees(6)
 };
 
 let experiment_configuration_function = (writer: Experiment_Output_Writer) => { return {
 
-    experiment_name: "TypeSystems-ConstructorCall-Flat",
+    experiment_name: "TypeSystems-ConstructorCalls-Hierarchical",
     seed: SEED,
 
     introduction_pages: writer.stage_string_pages_commands([
         writer.convert_string_to_html_string(
-            "Please, just do this experiment only, when you have enough time (about 10 minutes), are concentrated enough, and motivated enough.\n\nPlease, open the browser in fullscreen mode (probably by pressing [F11]). You should have a screen with a resolution of 1920x1080 or more."
+            "Please, just do this experiment only, when you have enough time (about 15 minutes), are concentrated enough, and motivated enough.\n\nPlease, open the browser in fullscreen mode (probably by pressing [F11]). You should have a screen with a resolution of 1920x1080 or more."
         ),
             "In this experiment, you will be asked to enter the constructor call to a class <span class='sourcecode'>Target</span>. A valid constructor call requires in the underlying language the correct number of parameters as well.<br><br>" +
             "The languages does <b>not</b> have a keyword such as <span class='sourcecode'>new</span>. Instead, you call a constructor like a function call, where the class name is the function name.<br/><br/> " +
@@ -68,7 +68,7 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
 
     pre_run_experiment_instructions: writer.string_page_command(
         writer.convert_string_to_html_string(
-            "You entered the experiment phase. Now, it should take probably 5-7 minutes until the end of the experiment."
+            "You entered the experiment phase. Now, it should take probably 8-12 minutes until the end of the experiment."
         )),
 
     post_questionnaire           :   [
@@ -89,28 +89,20 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
 
         alternatives("impression", "What statement describes " +
             "                       best your impression \n\ of the experiment?", [
-                                                                                "I do not think that there was a difference between static and dynamic types",
-                                                                                "Dynamic types made it slightly easier for me",
-                                                                                "Dynamic types made it much easier for me",
-                                                                                "Static types made it slightly easier for me",
-                                                                                "Static types made it much easier for me",
+                                                                                "I do not think that there was a difference between DSL and Java code",
+                                                                                "Java types made it slightly easier for me",
+                                                                                "Java types made it much easier for me",
+                                                                                "The type dsl made it slightly easier for me",
+                                                                                "The type dsl  made it much easier for me",
                                                                               ]),
 
         alternatives("preference", "What kinds of language do you prefer?", [
-                                                                                "Slightly rather dynamically typed languages",
-                                                                                "Slightly statically typed languages",
-                                                                                "Definitively dynamically typed languages",
-                                                                                "Definitively statically typed languages",
-                                                                                "I don't think typing matters much"
-        ]),
-        alternatives("possibleEffect", "Do you think participating in the experiment changed your perspective on type systems?", [
-            "Rather no",
-            "Rather yes",
-            "Definitively no",
-            "Definitively yes",
-            "I don't know"
-        ]),
-
+                                                                                "I prefer rather Java over the type DSL",
+                                                                                "I prefer rather the type DSL over Java",
+                                                                                "Definitively Java",
+                                                                                "Definitively the type DSL",
+                                                                                "I don't think the languages matter much"
+        ])
     ],
 
     finish_pages: [
