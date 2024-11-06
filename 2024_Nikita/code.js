@@ -23,7 +23,7 @@ function generate_us() {
 // Das hier ist die eigentliche Experimentdefinition
 document.experiment_definition(
     {
-        experiment_name:"Stefan First Trial",
+        experiment_name:"NikitasExperiment",
         seed:"42",
         introduction_pages:["Hi, this is Nikita's experiment",
 
