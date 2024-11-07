@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build TestExperiment": "webpack --config webpack.config.cjs",
+    "build Lib": "webpack --config ./N-of-1-Experimentation/___BUILD_LIB_FILE_TestExperiment/webpack.config.cjs",
     "build Questionnaire": "webpack --config ./experiments/Questionnaire/webpack.config.js",
     "start": "node server.ts"
   },
