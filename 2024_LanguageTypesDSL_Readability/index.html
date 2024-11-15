@@ -130,6 +130,21 @@
 </head>
 <body>
 
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+        if (typeof MathJax !== 'undefined') {
+            MathJax.typesetPromise().then(() => {
+                console.log("MathJax rendering completed.");
+            }).catch((err) => {
+                console.error("MathJax rendering error:", err);
+            });
+        } else {
+            console.error("MathJax is not defined. Make sure MathJax is loaded.");
+        }
+    });
+</script>
+
+
 <div class="topmenu">
     <h1>software-science.org</h1>
     <h2>The place where software experiments live</h2>
