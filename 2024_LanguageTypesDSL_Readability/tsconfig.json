@@ -14,16 +14,11 @@
     "rootDirs": [
         "./"
     ],
-//
-//    "paths": {
-//      "@experimentation/*": ["C:\\Users\\Stefan\\sciebo\\Development\\Webstorm\\Experimentation\\*"]
-//    }
 
   },
 
   "include": [  "*.ts",
                 "./**/*.ts",
-                "C:\\Users\\Stefan\\sciebo\\Development\\Webstorm\\Experiments\\**\\*.ts"
              ],
 
   "exclude": [

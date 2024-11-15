@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-    entry: './___BUILD_CURRENT_EXPERIMENT/typescript/experiment_configuration.ts',
+    entry: './2024_LanguageTypesDSL_Readability/typescript/experiment_configuration.ts',
     devtool: "inline-source-map",
     output: {
         // path:'./',
