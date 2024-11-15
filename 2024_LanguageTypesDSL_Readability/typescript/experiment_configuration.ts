@@ -86,7 +86,7 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
             "&nbsp;&nbsp;Type type_of(Environment e) {<br>" +
             "&nbsp;&nbsp;&nbsp;&nbsp;Type t1_type = t1.type_of(e);<br>" +
             "&nbsp;&nbsp;&nbsp;&nbsp;Type t2_type = t2.type_of(e);<br>" +
-            "&nbsp;&nbsp;&nbsp;&nbsp;return left_type;<br>" +
+            "&nbsp;&nbsp;&nbsp;&nbsp;return t1_type;<br>" +
             "&nbsp;&nbsp;}<br>" +
             "}</code></td>" +
             "</tr></table><br><br>" +
@@ -124,7 +124,7 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
 
             "<tr style='vertical-align:top'><td colspan='3' style='border: 1px solid black;'>" +
             "<code>class feature extends LTerm {<br>" +
-            "&nbsp;&nbsp;LTerm t1, t2;<br>" +
+            "&nbsp;&nbsp;LTerm t1, t2, t3;<br>" +
             "&nbsp;&nbsp;Type type_of(Environment e) {<br>" +
             "&nbsp;&nbsp;&nbsp;&nbsp;Type type_left = t1.type_of(e);<br>" +
             "&nbsp;&nbsp;&nbsp;&nbsp;Function_Type ft = (FunctionType) t2.type_of(e);<br>" +
@@ -171,10 +171,10 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
 
             "<tr style='vertical-align:top'><td colspan='3' style='border: 1px solid black;'>" +
             "<code>class feature extends LTerm {<br>" +
-            "&nbsp;&nbsp;LTerm t1, t2;<br>" +
+            "&nbsp;&nbsp;LTerm t1, t2, t3;<br>" +
             "&nbsp;&nbsp;Type type_of(Environment e) {<br>" +
             "&nbsp;&nbsp;&nbsp;&nbsp;Function_Type ft = (FunctionType) t1.type_of(e);<br>" +
-            "&nbsp;&nbsp;&nbsp;&nbsp;Type type_left = t1.type_of(e);<br>" +
+            "&nbsp;&nbsp;&nbsp;&nbsp;Type type_left = t2.type_of(e);<br>" +
             "&nbsp;&nbsp;&nbsp;&nbsp;Type type_right = t3.type_of(e);<br>" +
             "&nbsp;&nbsp;&nbsp;&nbsp;if(ft.left.equals(type_left) && ft.right.equals(type_right) <br>" +
             "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return BOOL;<br>" +
@@ -217,7 +217,7 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
 
             "<tr style='vertical-align:top'><td colspan='3' style='border: 1px solid black;'>" +
             "<code>class feature extends LTerm {<br>" +
-            "&nbsp;&nbsp;LTerm t1, t2;<br>" +
+            "&nbsp;&nbsp;LTerm t1, t2, t3;<br>" +
             "&nbsp;&nbsp;Type type_of(Environment e) {<br>" +
             "&nbsp;&nbsp;&nbsp;&nbsp;Type type_right = t1.type_of(e);<br>" +
             "&nbsp;&nbsp;&nbsp;&nbsp;Type type_left = t2.type_of(e);<br>" +
