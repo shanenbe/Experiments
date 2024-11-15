@@ -133,13 +133,7 @@
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function() {
         if (typeof MathJax !== 'undefined') {
-            MathJax.typesetPromise().then(() => {
-                console.log("MathJax rendering completed.");
-            }).catch((err) => {
-                console.error("MathJax rendering error:", err);
-            });
-        } else {
-            console.error("MathJax is not defined. Make sure MathJax is loaded.");
+            MathJax.typeset()
         }
     });
 </script>
