@@ -12,6 +12,7 @@
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline';">
 
     <script>
+
         window.MathJax = {
             chtml: {
                 scale: 1.6
@@ -30,6 +31,7 @@
             }
 
         };
+
     </script>
 
     <style>
@@ -130,6 +132,21 @@
 </head>
 <body>
 
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+        if (typeof MathJax !== 'undefined') {
+            MathJax.typesetPromise().then(() => {
+                Nof1['UPDATE'] = ()=>window.MathJax.typeset();
+                console.log("MathJax rendering completed.");
+            }).catch((err) => {
+                console.error("MathJax rendering error:", err);
+            });
+        } else {
+            console.error("MathJax is not defined. Make sure MathJax is loaded.");
+        }
+    });
+</script>
+
 <div class="topmenu">
     <h1>software-science.org</h1>
     <h2>The place where software experiments live</h2>
@@ -145,13 +162,11 @@
 </div>
 <div class="navigation">Some information</div>
 <div class="bottommenu">[Impressum]</div>
-
 <script>
     let Nof1 = {};
-    Nof1['UPDATE'] = ()=>window.MathJax.typeset();
 </script>
-
-<script src="./experiment.js"></script>
+<script src="./experiment.js">
+</script>
 
 </body>
 </html>
