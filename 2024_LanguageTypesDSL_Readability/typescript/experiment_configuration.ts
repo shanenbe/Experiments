@@ -50,7 +50,7 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
             "Let's see on the next page how such type systems can be represented using ordinary Java code."
 
         );// @ts-ignore
-            MathJax.typeset();},
+            window.MathJax.typeset();},
 
         ()=>{writer.print_string_on_stage("We assume in the given experiment, that (in a language implementation) each language construct is defined in it's own class (extending some root class LTerm) and that this class has a method <code>Type type_of(Environment e) {...}</code> " +
             "that returns the type of the given language construct. For the type <code>BOOL</code> and <code>NUMBER</code> we assume the existence of corresponding constants.<br><br>" +
@@ -93,7 +93,7 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
             "Before starting the experiment, let's see some examples on the next pages."
 
         );// @ts-ignore
-            MathJax.typeset();},
+            window.MathJax.typeset();},
 
         ()=>{writer.print_string_on_stage("The experiment asks, in what position in a given expression (with given type rules) a type error appears - and possibly there is no type error. " +
             "In the experiment, there are two different literals (that have the type <code>BOOL</code> or <code>NUMBER</code>) and one additional literal that has a function type (either <code>BOOL->NUMBER</code> or <code>NUMBER->BOOL</code>)." +
@@ -145,7 +145,7 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
             "Let's take a look at another example."
 
         );// @ts-ignore
-            MathJax.typeset();},
+            window.MathJax.typeset();},
 
         ()=>{writer.print_string_on_stage(
 
@@ -192,7 +192,7 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
             "Let's take a look at another example."
 
         );// @ts-ignore
-            MathJax.typeset();},
+            window.MathJax.typeset();},
         ()=>{writer.print_string_on_stage(
 
             "<table style='border: 1px solid black;'><tr style='vertical-align:top'>" +
@@ -239,7 +239,7 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
             "Let's see the same examples now with type inference rules."
 
         );// @ts-ignore
-            MathJax.typeset();},
+            window.MathJax.typeset();},
 
         ()=>{writer.print_string_on_stage(
 
@@ -259,7 +259,7 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
             "Let's take a look at another example."
 
         );// @ts-ignore
-            MathJax.typeset();},
+            window.MathJax.typeset();},
 
         ()=>{writer.print_string_on_stage(
 
@@ -279,7 +279,7 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
             "Let's take a look at the final example."
 
         );// @ts-ignore
-            MathJax.typeset();},
+            window.MathJax.typeset();},
 
         ()=>{writer.print_string_on_stage(
 
@@ -301,7 +301,7 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
             "Ok, you are now ready to start with the training phase (that you enter by pressing <code>[Enter]</code>)." +
             ""
         );// @ts-ignore
-            MathJax.typeset();},
+            window.MathJax.typeset();},
 
     ],
 
@@ -387,7 +387,7 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
             writer.clear_stage();
             writer.print_html_on_stage(html_string);
             // @ts-ignore
-            MathJax.typeset();
+            window.MathJax.typeset();
         };
 
         t.expected_answer = "" + task.error_position();
