@@ -2,9 +2,7 @@ import {BROWSER_EXPERIMENT} from "../../N-of-1-Experimentation/modules/Experimen
 import {
     alternatives,
     Experiment_Output_Writer, free_text, information, keys, random_array_element, Reaction_Time,
-    SET_SEED,
-    text_input_experiment,
-    Time_to_finish
+    SET_SEED
 } from "../../N-of-1-Experimentation/modules/Experimentation/Experimentation.js";
 import {Task} from "../../N-of-1-Experimentation/modules/Experimentation/Task.js";
 import {create_tasks_grouped_by_error_position, Feature_Term_with_Typing_rules} from "./code/Feature.js";
@@ -50,7 +48,7 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
             "Let's see on the next page how such type systems can be represented using ordinary Java code."
 
         );// @ts-ignore
-            document.update_mathjax();},
+            Nof1.update_mathjax();},
 
         ()=>{writer.print_string_on_stage("We assume in the given experiment, that (in a language implementation) each language construct is defined in it's own class (extending some root class LTerm) and that this class has a method <code>Type type_of(Environment e) {...}</code> " +
             "that returns the type of the given language construct. For the type <code>BOOL</code> and <code>NUMBER</code> we assume the existence of corresponding constants.<br><br>" +
