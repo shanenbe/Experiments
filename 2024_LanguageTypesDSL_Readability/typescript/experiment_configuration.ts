@@ -48,7 +48,7 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
             "Let's see on the next page how such type systems can be represented using ordinary Java code."
 
         );// @ts-ignore
-            Nof1.update_mathjax();},
+            Nof1.UPDATE();},
 
         ()=>{writer.print_string_on_stage("We assume in the given experiment, that (in a language implementation) each language construct is defined in it's own class (extending some root class LTerm) and that this class has a method <code>Type type_of(Environment e) {...}</code> " +
             "that returns the type of the given language construct. For the type <code>BOOL</code> and <code>NUMBER</code> we assume the existence of corresponding constants.<br><br>" +
