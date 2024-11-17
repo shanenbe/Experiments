@@ -41,7 +41,7 @@ The experiment tests the readability time of JSON-objects by asking the single q
 - Hierarchical experiment: [click here start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2024_TypeSystems_ConstructorCall/index.html)
 
 # 3. Type System DSL
-[click here start the experiment](https://github.com/shanenbe/Experiments/2024_LanguageTypesDSL_Readability/index.html)
+[click here start the experiment](https://shanenbe.github.io/Experiments/2024_LanguageTypesDSL_Readability/index.html)
 
 
 
