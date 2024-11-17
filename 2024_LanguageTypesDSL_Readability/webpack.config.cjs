@@ -23,12 +23,8 @@ module.exports = {
         ],
     },
 
-    // plugins: [
-    //     new HtmlWebpackPlugin({
-    //         title: 'TestExperiment',
-    //         filename: 'index.html',
-    //         inject: true
-    //     })
-    // ]
+    externals: {
+        MathJax: 'MathJax'
+    },
 
 };
