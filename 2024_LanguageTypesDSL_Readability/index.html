@@ -12,7 +12,6 @@
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline';">
 
     <script>
-
         window.MathJax = {
             chtml: {
                 scale: 1.6
@@ -31,7 +30,6 @@
             }
 
         };
-
     </script>
 
     <style>
@@ -132,12 +130,13 @@
 </head>
 <body>
 
+<body>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function() {
         if (typeof MathJax !== 'undefined') {
             MathJax.typesetPromise().then(() => {
-                Nof1['UPDATE'] = ()=>window.MathJax.typeset();
                 console.log("MathJax rendering completed.");
+                Nof1['UPDATE'] = ()=>MathJax.typeset();
             }).catch((err) => {
                 console.error("MathJax rendering error:", err);
             });
