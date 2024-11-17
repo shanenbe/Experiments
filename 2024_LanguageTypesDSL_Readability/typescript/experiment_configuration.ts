@@ -1,7 +1,7 @@
 import {BROWSER_EXPERIMENT} from "../../N-of-1-Experimentation/modules/Experimentation/Browser_Output_Writer.js";
 import {
     alternatives,
-    Experiment_Output_Writer, free_text, information, keys, random_array_element, Reaction_Time,
+    Experiment_Output_Writer, keys, random_array_element, Reaction_Time,
     SET_SEED
 } from "../../N-of-1-Experimentation/modules/Experimentation/Experimentation.js";
 import {Task} from "../../N-of-1-Experimentation/modules/Experimentation/Task.js";
@@ -357,7 +357,7 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
     ],
 
     layout: [
-        { variable: "Notation",  treatments: ["inference", "code"]},
+        { variable: "Notation",  treatments: ["code", "inference"]},
         { variable: "Error_position",  treatments: ["0", "1", "2", "3"]},
         { variable: "Terms_to_read",  treatments: ["computed variable"]}
     ],
@@ -377,7 +377,7 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
 
             let html_string;
 
-            if(t.treatment_value("Notation")==="inference") {
+            if(t.treatment_value("Notation")!="inference") {
                 html_string = task.typing_rules_as_code_html_string();
             } else {
                 html_string = task.inference_rules_as_html_string();
