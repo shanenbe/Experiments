@@ -2436,7 +2436,10 @@ let experiment_configuration_function = (writer) => {
             () => {
                 writer.print_string_on_stage("" +
                     "$\\scriptsize{\\mathrm{somethingelse:NUMBER}\\rightarrow\\mathrm{BOOL}}$<br><br>"); // @ts-ignore
-                MathJax.typeset();
+                MathJax.typesetPromise().then(() => {
+                    console.log("MathJax rendering complete");
+                });
+                // MathJax.typeset();
             }
         ],
         pre_run_training_instructions: writer.string_page_command(writer.convert_string_to_html_string("You entered the experiment phase.")),
