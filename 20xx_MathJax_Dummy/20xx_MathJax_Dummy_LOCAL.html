@@ -11,6 +11,7 @@
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline';">
 
     <script>
+        let not_yet_finished = true;
         window.MathJax = {
             chtml: {
                 scale: 1.6
@@ -24,7 +25,8 @@
             startup: {
                 ready: function () {
                     MathJax.startup.defaultReady();
-                    MathJax.typesetPromise();  // Verwende typesetPromise hier
+                    MathJax.typeset();  // Verwende typesetPromise hier
+                    not_yet_finished = false;
                 }
             }
 
