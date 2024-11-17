@@ -3018,7 +3018,7 @@ let experiment_configuration_function = (writer) => {
                 "-Stefan Hanenberg</p>")
         ],
         layout: [
-            { variable: "Notation", treatments: ["inference", "code"] },
+            { variable: "Notation", treatments: ["code", "inference"] },
             { variable: "Error_position", treatments: ["0", "1", "2", "3"] },
             { variable: "Terms_to_read", treatments: ["computed variable"] }
         ],
@@ -3031,7 +3031,7 @@ let experiment_configuration_function = (writer) => {
             t.do_print_task = () => {
                 writer.clear_stage();
                 let html_string;
-                if (t.treatment_value("Notation") === "inference") {
+                if (t.treatment_value("Notation") != "inference") {
                     html_string = task.typing_rules_as_code_html_string();
                 }
                 else {
