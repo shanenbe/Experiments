@@ -3,7 +3,6 @@ const path = require('path');
 
 module.exports = {
     entry: './2024_LanguageTypesDSL_Readability/typescript/experiment_configuration.ts',
-    devtool: "inline-source-map",
     output: {
         // path:'./',
         path: path.resolve(__dirname, './'),
