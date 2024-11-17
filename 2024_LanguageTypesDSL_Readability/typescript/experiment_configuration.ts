@@ -91,7 +91,7 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
             "Before starting the experiment, let's see some examples on the next pages."
 
         );// @ts-ignore
-            document.update_mathjax();},
+            Nof1.UPDATE();},
 
         ()=>{writer.print_string_on_stage("The experiment asks, in what position in a given expression (with given type rules) a type error appears - and possibly there is no type error. " +
             "In the experiment, there are two different literals (that have the type <code>BOOL</code> or <code>NUMBER</code>) and one additional literal that has a function type (either <code>BOOL->NUMBER</code> or <code>NUMBER->BOOL</code>)." +
