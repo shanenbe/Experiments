@@ -273,8 +273,8 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
             "\\mathrm{E}\\,\\vdash\\,\\mathrm{feature(t_1\\,\\,t_2\\,\\,t_3):\\,BOOL}" +
             "}}$<br><br>" +
             "$\\small{ \\mathrm{ feature( \\,exp_2 \\,\\,\\, exp_1 \\,\\,\\, exp_3 \\, )}}$<br><br>" +
-            "The first term <code>exp_2</code> has the type <code>NUMBER->BOOL</code> (which is fine),<br>" +
-            "The second term <code>exp_1</code> has the type <code>BOOL</code>, but it is assumed to have the left type of the function type (which is <code>NUMBER</code>), hence, exp_1 leads to an error (and the right answer is 2).<br><br></br>" +
+            "The first term $\\scriptsize{\\mathrm{exp_2}}$ has the type <code>NUMBER->BOOL</code> (which is fine),<br>" +
+            "The second term $\\scriptsize{\\mathrm{exp_1}}$ has the type <code>BOOL</code>, but it is assumed to have the left type of the function type (which is <code>NUMBER</code>), hence, $\\scriptsize{\\mathrm{exp_1}}$ leads to an error (and the right answer is 2).<br><br></br>" +
             "Let's take a look at the final example."
 
         );// @ts-ignore
@@ -293,9 +293,9 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
             "\\mathrm{E}\\,\\vdash\\,\\mathrm{feature(t_1\\,\\,t_2\\,\\,t_3):\\,BOOL}" +
             "}}$<br><br>" +
             "$\\small{ \\mathrm{ feature( \\,exp_3 \\,\\,\\, exp_2 \\,\\,\\, exp_1 \\, )}}$<br><br>" +
-            "The first term <code>exp_3</code> has the type <code>BOOL</code> (which is fine),<br>" +
-            "The second term <code>exp_2</code> has the type <code>NUMBER</code> (which is fine as well),<br>" +
-            "The third term <code>exp_1</code> has the type <code>BOOL->NUMBER</code> but it assumes that the first parameter has the right type of the function " +
+            "The first term $\\scriptsize{\\mathrm{exp_3}}$ has the type <code>BOOL</code> (which is fine),<br>" +
+            "The second term $\\scriptsize{\\mathrm{exp_2}}$ has the type <code>NUMBER</code> (which is fine as well),<br>" +
+            "The third term $\\scriptsize{\\mathrm{exp_1}}$ has the type <code>BOOL->NUMBER</code> but it assumes that the first parameter has the right type of the function " +
             "(which is not the case, because the first parameter has the type <code>NUMBER</code>, not <code>BOOL</code>. Hence, it causes an error and the right answer is 3.<br><br>" +
             "Ok, you are now ready to start with the training phase (that you enter by pressing <code>[Enter]</code>)." +
             ""
