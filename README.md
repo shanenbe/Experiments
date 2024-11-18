@@ -1,8 +1,6 @@
 # Collection of experiments on programming and source code
 
-This repo contains a bunch of N-of-1 experiments. Some are older experiments that were originally written in Java and that I converted now to be executed in the browswer. 
-
-You can start each experiment just by clicking on the links in the list below.
+This repo contains some N-of-1 experiments. You can start each experiment just by clicking on the links in the list below.
 
 In case you are interested in N-of-1 experiments in programming and software science, you might be interested in the following paper (open access):
 
@@ -40,7 +38,7 @@ The experiment tests the readability time of JSON-objects by asking the single q
 - Flat experiment: [click here start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2024_TypeSystems_ConstructorCall_Flat/index.html)
 - Hierarchical experiment: [click here start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2024_TypeSystems_ConstructorCall/index.html)
 
-# 3. Type System DSL
+## 4. Type System DSL
 [click here start the experiment](https://shanenbe.github.io/Experiments/2024_LanguageTypesDSL_Readability/index.html)
 
 
