@@ -510,10 +510,11 @@ let experiment_configuration_function = (writer) => {
                 "Nyuyyu")],
 
         layout: [
-            {variable: "Identifier", treatments: ["Good", "Bad"]}
+            {variable: "Identifier", treatments: ["Good", "Bad"]},
+            {variable: "Diff", treatments: ["4", "6", "8"]}
             // {variable:"Diff",treatments:["8", "9"]}
         ],
-        repetitions: 2,                    // Anzahl der Wiederholungen pro Treatmentcombination
+        repetitions: 10,                    // Anzahl der Wiederholungen pro Treatmentcombination
         accepted_responses: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"], // Tasten, die vom Experiment als Eingabe akzeptiert werden
         measurement: Nof1.Reaction_time(Nof1.keys(["0", "1", "2", "3"])),
         task_configuration: (t) => {
@@ -613,7 +614,7 @@ let experiment_configuration_function = (writer) => {
             t.do_print_task = () => {
                 writer.clear_stage();
                 let converted_string =  writer.convert_string_to_html_string(HTML_String);
-                writer.print_html_on_stage(converted_string);
+                writer.print_html_on_stage("<code>" + converted_string + "</code>");
             };
 
             // t.expected_answer = this_statement.correct_answer();
