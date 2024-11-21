@@ -9,22 +9,16 @@ let experiment_configuration_function = (writer) => {
         seed: SEED,
 
         introduction_pages: [
-            () => writer.print_string_on_stage("This is the introduction page. Press [Return] to enter the training phase.")
+            () => writer.print_string_on_stage("Hello, world. Press [Return] to enter the training phase.")
         ],
 
         pre_run_training_instructions: writer.string_page_command(
             "You entered the training phase. Press [Enter] to start training."
         ),
 
-        pre_run_instruction: writer.string_page_command(
-            writer.convert_string_to_html_string(
-                "You entered the experiment phase."
-            )),
-
-
         pre_run_experiment_instructions: writer.string_page_command(
             writer.convert_string_to_html_string(
-                "You entered the experiment phase."
+                "You entered the experiment phase. Press [Enter] to start the experiment."
             )),
 
         post_questionnaire: [
@@ -55,15 +49,17 @@ let experiment_configuration_function = (writer) => {
         accepted_responses: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"], // Tasten, die vom Experiment als Eingabe akzeptiert werden
         measurement: Nof1.Reaction_time(Nof1.keys(["0", "1", "2", "3"])),
 
-        task_configuration: (t) => {
+        task_configuration: (task) => {
 
-            t.do_print_task = () => {
+            task.do_print_task = () => {
                 writer.clear_stage();
-                let converted_string =  writer.convert_string_to_html_string(HTML_String);
-                writer.print_html_on_stage(converted_string);
+                writer.print_html_on_stage("Say Hello, " + task.treatment_value("MainVariable"));
             };
 
-            t.after_task_string = () => "The correct answer for the code was: " + t.expected_answer;
+            task.do_print_after_task_information = () => {
+                writer.print_error_string_on_stage(
+                    writer.convert_string_to_html_string("Ok, there was something wrong. Dont mind."));
+            }
         }
     }
 };

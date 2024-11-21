@@ -51,7 +51,7 @@ module.exports = {
         ],
     },
     output: {
-        filename: './experiment.js',
+        filename: './experiment_configuration.js',
         path: path.resolve(__dirname, '.'),
     },
 
