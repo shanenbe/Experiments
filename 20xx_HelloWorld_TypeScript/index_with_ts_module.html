@@ -5,16 +5,31 @@
     <meta name="viewport" content="width=device-width">
     <title>Software-Science.org</title>
 
-    <!--    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>-->
+    <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+
+
+    <script type="text/javascript" defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" ></script>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline';">
+
     <script>
         window.MathJax = {
-            loader: {load: ['[tex]/color']},
-            tex: {packages: {'[+]': ['color']}}
-        };
-    </script>
-    <script id="MathJax-script"
-            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+            chtml: {
+                scale: 1.6
+            },
+            svg: {
+                fontCache: 'global'
+            },
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            startup: {
+                ready: function () {
+                    MathJax.startup.defaultReady();
+                    MathJax.typesetPromise();  // Verwende typesetPromise hier
+                }
+            }
 
+        };
     </script>
 
     <style>
@@ -95,7 +110,9 @@
         }
 
         body .stage .input {
-            width: 300px;
+            width: 500px;
+            font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
+            font-size: 120%;
         }
 
         body .stage_error {
@@ -106,19 +123,6 @@
         body .stage_msg {
             margin:10px;
         }
-        .parent {
-            text-align: left;
-        }
-        .child {
-            display: inline-block;
-            font-size: 14px;
-            vertical-align: top;
-            margin-left: 50px;
-        }
-        .target {
-            font-size: 14px;
-        }
-
 
     </style>
 
@@ -139,15 +143,15 @@
     <div class="stage_error" ID="STAGE_ERROR"></div>
     <div class="stage_msg" ID="STAGE_MSG"></div>
 </div>
+<div class="navigation">Some information</div>
+<div class="bottommenu">[Impressum]</div>
 
 <script>
     let Nof1 = {};
 
 </script>
 
-<script src="./nof1experimentation.js"></script>
-<script src="./code.js"></script>
-
+<script type="module"  src="./typescript/experiment_configuration.js"></script>
 
 </body>
 </html>

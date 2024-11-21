@@ -5,6 +5,33 @@
     <meta name="viewport" content="width=device-width">
     <title>Software-Science.org</title>
 
+    <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+
+
+    <script type="text/javascript" defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" ></script>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline';">
+
+    <script>
+        window.MathJax = {
+            chtml: {
+                scale: 1.6
+            },
+            svg: {
+                fontCache: 'global'
+            },
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            startup: {
+                ready: function () {
+                    MathJax.startup.defaultReady();
+                    MathJax.typesetPromise();  // Verwende typesetPromise hier
+                }
+            }
+
+        };
+    </script>
+
     <style>
 
         /*body {*/
@@ -83,7 +110,9 @@
         }
 
         body .stage .input {
-            width: 300px;
+            width: 500px;
+            font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
+            font-size: 120%;
         }
 
         body .stage_error {
@@ -94,25 +123,28 @@
         body .stage_msg {
             margin:10px;
         }
-        .parent {
-            text-align: left;
-        }
-        .child {
-            display: inline-block;
-            font-size: 14px;
-            vertical-align: top;
-            margin-left: 50px;
-        }
-        .target {
-            font-size: 14px;
-        }
-
 
     </style>
 
 
 </head>
+
 <body>
+<script type="text/javascript">
+    let Nof1 = {};
+    document.addEventListener("DOMContentLoaded", function() {
+        if (typeof MathJax !== 'undefined') {
+            MathJax.typesetPromise().then(() => {
+                console.log("MathJax rendering completed.");
+                Nof1['UPDATE'] = ()=>MathJax.typeset();
+            }).catch((err) => {
+                console.error("MathJax rendering error:", err);
+            });
+        } else {
+            console.error("MathJax is not defined. Make sure MathJax is loaded.");
+        }
+    });
+</script>
 
 <div class="topmenu">
     <h1>software-science.org</h1>
@@ -127,16 +159,11 @@
     <div class="stage_error" ID="STAGE_ERROR"></div>
     <div class="stage_msg" ID="STAGE_MSG"></div>
 </div>
+<div class="navigation">Some information</div>
+<div class="bottommenu">[Impressum]</div>
 
-<H1>
-    Sorry, due to an error in the experiment, we shifted the execution.<br/>
-    The experiment starts on 06.08.2024.
-</H1>
-
-<H1>
-    Thank you for being willing to participate and we are sorry for any inconveniences.
-    We hope you will still participate starting from 06.08.2024.
-</H1>
+<script src="experiment_configuration.js">
+</script>
 
 </body>
 </html>

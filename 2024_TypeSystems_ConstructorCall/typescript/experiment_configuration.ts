@@ -162,7 +162,7 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
 
         t.expected_answer = as_constructor_call(this_tree).call_string();
 
-        t.accepts_answer_function = (given_answer) => {
+        t.accepts_answer_function = (given_answer:string) => {
             let given_call = null;
             try {
                 let given_call:Constructor_Call = call_string(given_answer);
