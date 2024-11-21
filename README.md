@@ -10,7 +10,9 @@ Each experiment generates a csv file at the end of the experiment. The present c
 
 
 Note that this is NOT the source code repository for the software used in each experiment (which can be found [here](https://github.com/shanenbe/N-of-1-Experimentation)) - the experiments 
-just use some versions of the mentioned repository in their file lib.js (probably in different version - I will not keep the experiments in sync with the code repo in order not to change experiments that were already executed). The present repository is the source code repository for the experiment definitions.
+just use some versions of the mentioned repository in their file lib.js (probably in different version - I will not keep the experiments in sync with the code repo in order not to change experiments that were already executed). 
+The present repository is the source code repository for the experiment definitions. However, if you still want to write your own experiments,
+take a look at [this link](https://github.com/shanenbe/Experiments/blob/main/HowTo.md).
 
 In case you have questions or comments, just drop me an email.
 

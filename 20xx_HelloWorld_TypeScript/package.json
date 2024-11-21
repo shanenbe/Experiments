@@ -1,0 +1,29 @@
+{
+  "name": "Experimentation",
+  "version": "1.0.0",
+  "main": "start_html.js",
+  "type": "module",
+  "scripts": {
+    "build Experiment": "webpack --config webpack.config.cjs"
+  },
+  "dependencies": {
+    "esbuild": "0.19.3",
+    "html-webpack-plugin": "^5.5.3",
+    "http": "0.0.1-security",
+    "http-server": "^14.1.1",
+    "node-fetch": "^2.7.0",
+    "typescript": "^5.2.2",
+    "webpack-cli": "^5.1.4"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/module-alias": "^2.0.4",
+    "module-alias": "^2.2.3",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
+    "webpack": "^5.94.0"
+  }
+}
