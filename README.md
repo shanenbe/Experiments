@@ -41,7 +41,14 @@ The experiment tests the readability time of JSON-objects by asking the single q
 - Hierarchical experiment: [click here start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2024_TypeSystems_ConstructorCall/index.html)
 
 ## 4. Type System DSL
-[click here start the experiment](https://shanenbe.github.io/Experiments/2024_LanguageTypesDSL_Readability/index.html)
+[click here start the experiment](https://shanenbe.github.io/Experiments/2024_LanguageTypesDSL_Readability/index.html) This experiment is a follow-up study of the one described in
+
+[Klanten, Hanenberg, Gries, Gruhn:
+Readability of Domain-Specific Languages: A Controlled Experiment Comparing (Declarative) Inference Rules with (Imperative) Java Source Code in Programming Language Design. ICSOFT 2024: 492-503](https://doi.org/10.5220/0012857800003753)
+
+The results of the experiment are described in the paper
+
+Hanenberg, Klanten, Gries, Gruhn, Readability of Domain-Specific Languages in Language Design: A Controlled Experiment on Declarative Inference Rules and Imperative Java Source Code (accepted for publication in Communications in Computer and Information Science -- to appear).
 
 
 
