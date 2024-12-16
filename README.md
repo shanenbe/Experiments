@@ -21,7 +21,7 @@ In case you have questions or comments, just drop me an email.
 
 ## 1. Indentation in Source Code 
 ### 1.1 Nested ifs
-[[click here start the experiment]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2023_Indentation/index.html) The experiment should take (without training) about 20-30 minutes. 
+[[click here to start the experiment]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2023_Indentation/index.html) The experiment should take (without training) about 20-30 minutes. 
 It is is a remake of the experiment described in:
 
 [Hanenberg, Morzeck, Gruhn, "Indentation and reading time: a randomized control trial on the differences between generated indented and non-indented if-statements", Empirical Software Engineering, Vol 29, No 5, 2024.](https://doi.org/10.1007/s10664-024-10531-y)
@@ -37,11 +37,11 @@ The experiment tests the readability time of JSON-objects by asking the single q
 [Hanenberg,Morzeck, Werger, Gries, Gruhn, "Indentation and Reading Time: A Controlled Experiment on the Differences Between Generated Indented and Non-indented JSON Objects", Communications in Computer and Information Science 2104, Springer, 2024, pp. 50-75.](https://doi.org/10.1007/978-3-031-61753-9_4)
 
 ## 3. Type Systems - constructor calls
-- Flat experiment: [click here start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2024_TypeSystems_ConstructorCall_Flat/index.html)
-- Hierarchical experiment: [click here start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2024_TypeSystems_ConstructorCall/index.html)
+- Flat experiment: [click here to start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2024_TypeSystems_ConstructorCall_Flat/index.html)
+- Hierarchical experiment: [click here to start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2024_TypeSystems_ConstructorCall/index.html)
 
 ## 4. Type System DSL
-[click here start the experiment](https://shanenbe.github.io/Experiments/2024_LanguageTypesDSL_Readability/index.html) This experiment is a follow-up study of the one described in
+[click here to start the experiment](https://shanenbe.github.io/Experiments/2024_LanguageTypesDSL_Readability/index.html) This experiment is a follow-up study of the one described in
 
 [Klanten, Hanenberg, Gries, Gruhn:
 Readability of Domain-Specific Languages: A Controlled Experiment Comparing (Declarative) Inference Rules with (Imperative) Java Source Code in Programming Language Design. ICSOFT 2024: 492-503](https://doi.org/10.5220/0012857800003753)
