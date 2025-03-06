@@ -7,7 +7,7 @@ import {
     Time_to_finish
 } from "../../N-of-1-Experimentation/modules/Experimentation/Experimentation.js";
 import {Task} from "../../N-of-1-Experimentation/modules/Experimentation/Task.js";
-import {generate_flat_trees, generate_trees} from "../../N-of-1-Experimentation/modules/graphs_n_trees/Tree.js";
+import {generate_flat_trees, generate_trees, Tree} from "../../N-of-1-Experimentation/modules/graphs_n_trees/Tree.js";
 import {generate_classes_from_tree} from "./code/generate_classes_from_tree.js";
 import {call_string} from "./code/Parser.js";
 import {as_constructor_call} from "./code/convert_tree_to_constructor_call.js";
@@ -148,7 +148,7 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
 
     task_configuration:    (t:Task) => {
 
-        let this_tree = random_array_element(TREES[t.treatment_value("Number_of_parameters")]).clone();
+        let this_tree = random_array_element((TREES[t.treatment_value("Number_of_parameters")] as Tree[])).clone();
         let this_classes = generate_classes_from_tree(this_tree, 14);
 
         let html_string = this_classes.html_table_string(5, t.treatment_value("Notation")==="types");

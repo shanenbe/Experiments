@@ -5,7 +5,12 @@ import {
     SET_SEED
 } from "../../N-of-1-Experimentation/modules/Experimentation/Experimentation.js";
 import {Task} from "../../N-of-1-Experimentation/modules/Experimentation/Task.js";
-import {generate_query, generate_tables, tables_as_string} from "./SQL_Generator.js";
+import {
+    generate_query,
+    generate_tables,
+    tables_as_string,
+    set_number_of_projections
+} from "./SQL_Generator.js";
 
 
 let SEED = "42";
@@ -18,7 +23,8 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
     seed: SEED,
 
     introduction_pages:                 [
-                                            ()=>writer.print_string_on_stage("Thank you for participating in the experiment.")
+                                            ()=>writer.print_string_on_stage("Thank you for participating in the experiment. Just check, whether each shown SQL statement is valid.<br><br>" +
+                                                                             "Press [1] for valid, press [0] for invalid.")
                                         ],
 
     pre_run_training_instructions:      writer.string_page_command(
@@ -79,6 +85,11 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
                                             )
     ],
 
+    training_configuration: {
+        can_be_cancelled: true,
+        can_be_repeated: true
+    },
+
     finish_pages: [
                         writer.string_page_command(
                             "<p>Almost done. Next, the experiment data will be downloaded (after pressing [Enter]).<br><br>" +
@@ -97,27 +108,34 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
 
     layout: [
                 { variable: "Format",  treatments: ["With", "Subquery"]},
-                { variable: "Error_position",  treatments: ["0", "1", "2", "3"]},
+                { variable: "Error_position",  treatments: ["0", "1", "2", "3", "4"]},
     ],
 
-    repetitions: 1,
+    repetitions: 5,
 
-    measurement: Reaction_Time(keys(["0", "1", "2", "3", "4"])),
+    measurement: Reaction_Time(keys(["0", "1"])),
 
     task_configuration:    (t:Task) => {
-        let tables = generate_tables(4, 3);
+        set_number_of_projections(2);
+        let tables = generate_tables(3, 3);
         let forbidden_names = tables.map(e => e.name);
-        let query = generate_query(tables, forbidden_names, 3);
+
+        let query = generate_query(tables, forbidden_names, 2);
 
         let query_string;
         let table_string = tables_as_string(tables);
+
+        if(t.treatment_value("Error_position")!="0") {
+            query.inject_error(parseInt(t.treatment_value("Error_position")), t.treatment_value("Format"));
+        }
+
         if(t.treatment_value("Format") == "With") {
             query_string = query.query_string_with_WITH();
         } else {
             query_string = query.query_string_with_subqueries();
         }
 
-        t.expected_answer = "1";
+        t.expected_answer = t.treatment_value("Error_position")=="0"?"1":"0";
 
         t.do_print_task = () => {
             writer.clear_stage();
@@ -126,6 +144,7 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
                 + writer.convert_string_to_html_string(table_string)
                 + writer.convert_string_to_html_string("\n\n")
                 + writer.convert_string_to_html_string(query_string)
+                + writer.convert_string_to_html_string("\n\n")
                 + "</div>"
             );
         };
@@ -134,6 +153,7 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
 
         t.do_print_after_task_information = () => {
             writer.print_error_string_on_stage(writer.convert_string_to_html_string(
+                "The correct answer was: " + t.expected_answer + "\n\n" +
                 "In case, you feel not concentrated enough, make a short break.\n\n" +
                 "Press [Enter] to go on. "));
         }
