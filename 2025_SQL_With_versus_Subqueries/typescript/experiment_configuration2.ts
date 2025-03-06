@@ -5,17 +5,16 @@ import {
     SET_SEED
 } from "../../N-of-1-Experimentation/modules/Experimentation/Experimentation.js";
 import {Task} from "../../N-of-1-Experimentation/modules/Experimentation/Task.js";
-import {create_tasks_grouped_by_error_position, Feature_Term_with_Typing_rules} from "./SQL_Generator.js";
+import {generate_query, generate_tables} from "./SQL_Generator.js";
+
 
 let SEED = "42";
 
 SET_SEED(SEED);
 
-let tasks = create_tasks_grouped_by_error_position();
-
 let experiment_configuration_function = (writer: Experiment_Output_Writer) => { return {
 
-    experiment_name: "TypeSystems-ConstructorCalls-Hierarchical",
+    experiment_name: "SQL-WithVersusSubquery",
     seed: SEED,
 
     introduction_pages:                 [
@@ -97,49 +96,44 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
                     ],
 
     layout: [
-                { variable: "Notation",  treatments: ["code", "inference"]},
+                { variable: "Format",  treatments: ["With", "Subquery"]},
                 { variable: "Error_position",  treatments: ["0", "1", "2", "3"]},
-                { variable: "Terms_to_read",  treatments: ["computed variable"]}
     ],
 
     repetitions: 4,
 
-    measurement: Reaction_Time(keys(["0", "1", "2", "3"])),
+    measurement: Reaction_Time(keys(["0", "1", "2", "3", "4"])),
 
     task_configuration:    (t:Task) => {
+        let tables = generate_tables(5, 5);
+        let forbidden_names = tables.map(e => e.name);
+        let query = generate_query(tables, forbidden_names, 3);
 
-        let task:Feature_Term_with_Typing_rules = random_array_element(tasks["" + t.treatment_value("Error_position")]);
-        t.set_computed_variable_value("Terms_to_read", ((task.error_position()==0)?"3":("" + task.error_position())));
-        t.treatment_combination.treatment_combination[2]
+        let query_string;
+
+        if(t.treatment_value("Format") == "With") {
+            query_string = query.query_string_with_WITH();
+        } else {
+            query_string = query.query_string_with_subqueries();
+        }
+
+        t.expected_answer = "1";
 
         t.do_print_task = () => {
             writer.clear_stage();
-
-            let html_string;
-
-            if(t.treatment_value("Notation")!="inference") {
-                html_string = task.typing_rules_as_code_html_string();
-            } else {
-                html_string = task.inference_rules_as_html_string();
-            }
-
-            writer.clear_stage();
-            writer.print_html_on_stage(html_string);
-            // @ts-ignore
-            window.MathJax.typeset();
+            writer.print_html_on_stage(
+                "<div class='sourcecode'>"
+                + writer.convert_string_to_html_string(query_string)
+                + "</div>"
+            );
         };
 
-        t.expected_answer = "" + task.error_position();
+        t.accepts_answer = (s) => true;
 
         t.do_print_after_task_information = () => {
-            let error_msg = task.response_text();
-
             writer.print_error_string_on_stage(writer.convert_string_to_html_string(
-                error_msg + "\n\n" +
                 "In case, you feel not concentrated enough, make a short break.\n\n" +
                 "Press [Enter] to go on. "));
-
-            task.debug_help(t);
         }
     }
 }};

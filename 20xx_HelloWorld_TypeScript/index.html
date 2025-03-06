@@ -5,39 +5,7 @@
     <meta name="viewport" content="width=device-width">
     <title>Software-Science.org</title>
 
-    <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-
-
-    <script type="text/javascript" defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" ></script>
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline';">
-
-    <script>
-        window.MathJax = {
-            chtml: {
-                scale: 1.6
-            },
-            svg: {
-                fontCache: 'global'
-            },
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']]
-            },
-            startup: {
-                ready: function () {
-                    MathJax.startup.defaultReady();
-                    MathJax.typesetPromise();  // Verwende typesetPromise hier
-                }
-            }
-
-        };
-    </script>
-
     <style>
-
-        /*body {*/
-        /*    padding: 0;*/
-        /*    margin: 0*/
-        /*}*/
 
         body .topmenu {
             position: sticky;
@@ -132,18 +100,6 @@
 <body>
 <script type="text/javascript">
     let Nof1 = {};
-    document.addEventListener("DOMContentLoaded", function() {
-        if (typeof MathJax !== 'undefined') {
-            MathJax.typesetPromise().then(() => {
-                console.log("MathJax rendering completed.");
-                Nof1['UPDATE'] = ()=>MathJax.typeset();
-            }).catch((err) => {
-                console.error("MathJax rendering error:", err);
-            });
-        } else {
-            console.error("MathJax is not defined. Make sure MathJax is loaded.");
-        }
-    });
 </script>
 
 <div class="topmenu">
