@@ -29,9 +29,9 @@ The easiest way to start with an experiment is to use one of the two template-pr
 
 ## JavaScript
 For JavaScript, start with the template project https://github.com/shanenbe/Experiments/tree/main/20xx_HelloWorld_JavaScript, consisting of 
-three files (``experiment_configuration2.js``, ``index.html``, ``nof1experimentation.js``). 
+three files (``experiment_configuration.js``, ``index.html``, ``nof1experimentation.js``). 
 
-The only file you need to touch is ``experiment_configuration2.js`` (the file ``nof1experimentation.js`` contains the experimentation API 
+The only file you need to touch is ``experiment_configuration.js`` (the file ``nof1experimentation.js`` contains the experimentation API 
  packed into one single file via webpack). This file originates from: https://github.com/shanenbe/N-of-1-Experimentation/blob/main/___BUILD_LIB_FILE_TestExperiment/nof1experimentation.js. 
 Next, you need to see what functions are provided by the API. Take a look into the file
 
@@ -62,7 +62,7 @@ You can start the TypeScript experiment by running the file ``index_with_ts_modu
 This file can be used to start the experiment once you have webpacked everything (NOTE: Without webpacking, starting ``index.html`` causes an exception).
 
 ## Changing the experiment definition
-Most of the code in ``experiment_configuration2.js``, respectively ``experiment_configuration2.ts`` should be self-explaining. 
+Most of the code in ``experiment_configuration.js``, respectively ``experiment_configuration.ts`` should be self-explaining. 
 As a starting point, start defining your independent variables in the experiment, then define the number of repetitions.
 Then, you probably want to define how a task is  shown to participants. Thereto, you pass a (parameterless) lambda expression to ``task.do_print_task``. You also
 probably want to change what is shown to participants once a response is given. Thereto, you need to assign a (again, parameterless) lambda expression
@@ -108,10 +108,10 @@ https://github.com/shanenbe/Experiments/tree/main/20xx_HelloWorld_TypeScript con
 webpack: ``tsconfig.json``, ``package.json``, and ``webpack.config.cjs``. In case you use WebStorm, you need to generate an npm runner, where 
 you pass the package.json to. This file contains a webpack runner ``"webpack --config webpack.config.cjs"`` that starts webpack for the project.
 
-Once you started webpack, it generates a file ``experiment_configuration2.js`` in https://github.com/shanenbe/Experiments/tree/main/20xx_HelloWorld_TypeScript. 
+Once you started webpack, it generates a file ``experiment_configuration.js`` in https://github.com/shanenbe/Experiments/tree/main/20xx_HelloWorld_TypeScript. 
 Now, you can run ``index.html`` to start the experiment.
 
-In case you want to provide your experiment via github, you need to push the html file and ``experiment_configuration2.js``. Then, you can start the experiment via the link
+In case you want to provide your experiment via github, you need to push the html file and ``experiment_configuration.js``. Then, you can start the experiment via the link
 
 https://USERNAME.github.io/REPO_NAME/DIRECTORY/index.html
 

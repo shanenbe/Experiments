@@ -8,7 +8,7 @@ module.exports = {
     devtool: 'source-map',
     mode: 'development',
 
-    entry: './typescript/experiment_configuration2.ts',
+    entry: './typescript/experiment_configuration.ts',
 
     optimization: {
         splitChunks: {
@@ -33,7 +33,7 @@ module.exports = {
         ],
     },
     output: {
-        filename: './experiment_configuration2.js',
+        filename: './experiment_configuration.js',
         path: path.resolve(__dirname, '.'),
     },
 };

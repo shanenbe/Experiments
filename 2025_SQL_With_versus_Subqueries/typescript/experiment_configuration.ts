@@ -5,7 +5,7 @@ import {
     SET_SEED
 } from "../../N-of-1-Experimentation/modules/Experimentation/Experimentation.js";
 import {Task} from "../../N-of-1-Experimentation/modules/Experimentation/Task.js";
-import {generate_query, generate_tables} from "./SQL_Generator.js";
+import {generate_query, generate_tables, tables_as_string} from "./SQL_Generator.js";
 
 
 let SEED = "42";
@@ -100,17 +100,17 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
                 { variable: "Error_position",  treatments: ["0", "1", "2", "3"]},
     ],
 
-    repetitions: 4,
+    repetitions: 1,
 
     measurement: Reaction_Time(keys(["0", "1", "2", "3", "4"])),
 
     task_configuration:    (t:Task) => {
-        let tables = generate_tables(5, 5);
+        let tables = generate_tables(4, 3);
         let forbidden_names = tables.map(e => e.name);
         let query = generate_query(tables, forbidden_names, 3);
 
         let query_string;
-
+        let table_string = tables_as_string(tables);
         if(t.treatment_value("Format") == "With") {
             query_string = query.query_string_with_WITH();
         } else {
@@ -123,6 +123,8 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
             writer.clear_stage();
             writer.print_html_on_stage(
                 "<div class='sourcecode'>"
+                + writer.convert_string_to_html_string(table_string)
+                + writer.convert_string_to_html_string("\n\n")
                 + writer.convert_string_to_html_string(query_string)
                 + "</div>"
             );

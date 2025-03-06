@@ -2,12 +2,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-    entry: './___BUILD_CURRENT_EXPERIMENT/typescript/experiment_configuration2.ts',
+    entry: './___BUILD_CURRENT_EXPERIMENT/typescript/experiment_configuration.ts',
     devtool: "inline-source-map",
     output: {
         // path:'./',
         path: path.resolve(__dirname, './'),
-        filename: 'experiment_configuration2.js',
+        filename: 'experiment_configuration.js',
     },
     resolve: {
         extensions: [ '.tsx', '.ts', '.js' ],
