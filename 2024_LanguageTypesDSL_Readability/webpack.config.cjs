@@ -13,7 +13,7 @@ module.exports = {
     devtool: 'source-map',
     mode: 'development',
 
-    entry: './2024_LanguageTypesDSL_Readability/typescript/experiment_configuration.ts',
+    entry: './2024_LanguageTypesDSL_Readability/typescript/exp_trial02.ts',
 
     optimization: {
         splitChunks: {

@@ -4,7 +4,8 @@
   "main": "start_html.js",
   "type": "module",
   "scripts": {
-    "build SQL": "webpack --config ./webpack.config.cjs"
+    "build SQL trial02": "webpack --config trial02/webpack.config.cjs",
+    "build SQL trial01": "webpack --config trial01/webpack.config.cjs"
   },
   "dependencies": {
     "browser-resolve": "^2.0.0",

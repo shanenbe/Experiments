@@ -1,10 +1,10 @@
-import {BROWSER_EXPERIMENT} from "../../N-of-1-Experimentation/modules/Experimentation/Browser_Output_Writer.js";
+import {BROWSER_EXPERIMENT} from "../../../N-of-1-Experimentation/modules/Experimentation/Browser_Output_Writer.js";
 import {
     alternatives,
     Experiment_Output_Writer, keys, random_array_element, Reaction_Time,
     SET_SEED
-} from "../../N-of-1-Experimentation/modules/Experimentation/Experimentation.js";
-import {Task} from "../../N-of-1-Experimentation/modules/Experimentation/Task.js";
+} from "../../../N-of-1-Experimentation/modules/Experimentation/Experimentation.js";
+import {Task} from "../../../N-of-1-Experimentation/modules/Experimentation/Task.js";
 import {
     generate_query,
     generate_tables,

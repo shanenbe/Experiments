@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-    entry: './___BUILD_CURRENT_EXPERIMENT/typescript/experiment_configuration.ts',
+    entry: './___BUILD_CURRENT_EXPERIMENT/typescript/exp_trial02.ts',
     devtool: "inline-source-map",
     output: {
         // path:'./',
@@ -26,7 +26,7 @@ module.exports = {
     // plugins: [
     //     new HtmlWebpackPlugin({
     //         title: 'TestExperiment',
-    //         filename: 'index.html',
+    //         filename: 'SQL_trial02_web.html',
     //         inject: true
     //     })
     // ]

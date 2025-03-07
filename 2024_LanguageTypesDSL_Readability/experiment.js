@@ -2722,7 +2722,7 @@ function dummy(){
 /************************************************************************/
 var __webpack_exports__ = {};
 /*!**********************************************************************************!*\
-  !*** ./2024_LanguageTypesDSL_Readability/typescript/experiment_configuration.ts ***!
+  !*** ./2024_LanguageTypesDSL_Readability/typescript/exp_trial02.ts ***!
   \**********************************************************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _N_of_1_Experimentation_modules_Experimentation_Browser_Output_Writer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../N-of-1-Experimentation/modules/Experimentation/Browser_Output_Writer.js */ "./N-of-1-Experimentation/modules/Experimentation/Browser_Output_Writer.js");

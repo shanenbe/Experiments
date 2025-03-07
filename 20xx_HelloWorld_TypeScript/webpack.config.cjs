@@ -8,7 +8,7 @@ module.exports = {
     devtool: 'source-map',
     mode: 'development',
 
-    entry: './typescript/experiment_configuration.ts',
+    entry: './typescript/exp_trial02.ts',
 
     optimization: {
         splitChunks: {
