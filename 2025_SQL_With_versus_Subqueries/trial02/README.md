@@ -9,4 +9,4 @@ Changes to trial01:
 
 - No repetitions of tables in table generation
 
-[click here to start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2025_SQL_With_versus_Subqueries/index.html)
+[click here to start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2025_SQL_With_versus_Subqueries/trial2/SQL_trial02_web.html)
