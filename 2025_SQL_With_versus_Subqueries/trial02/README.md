@@ -10,3 +10,5 @@ Changes to [trial01](https://github.com/shanenbe/Experiments/blob/main/2025_SQL_
 - No repetitions of tables in table generation
 
 [click here to start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2025_SQL_With_versus_Subqueries/trial02/SQL_trial02_web.html)
+
+...but still no results.
