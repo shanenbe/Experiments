@@ -28,7 +28,7 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
                                         ],
 
     pre_run_training_instructions:      writer.string_page_command(
-                                            "You entered the training phase."
+                                            "You entered the training phase. You can skip the training by pressing [Esc]."
                                         ),
 
     pre_run_experiment_instructions:    writer.string_page_command(
