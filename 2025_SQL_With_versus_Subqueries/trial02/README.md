@@ -1,6 +1,6 @@
 # Start experiment
 
-Changes to [trial01](http://../trial01/README-md):
+Changes to [trial01](http://../trial01/README.md):
 - The outermost projection in subqueries has now the latest position.
 - Changed table generation (generate_tables(5, 2))
         let tables = generate_tables(5, 2);
