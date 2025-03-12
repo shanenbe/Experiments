@@ -103,18 +103,21 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
                     ],
 
     layout: [
-                { variable: "Format",  treatments: ["Dummy1", "Dummy2"]},
+        { variable: "Format",  treatments: ["OneLine", "MultiLine"]}
+        { variable: "AnswerPosition",  treatments: ["1", "2", "3", "4"]}
     ],
 
-    repetitions: 5,
+    repetitions: 10,
 
-    measurement: Reaction_Time(keys(["0", "1"])),
+    measurement: Reaction_Time(keys(["0", "1", "3"])),
 
     task_configuration:    (t:Task) => {
 
         let string_to_show;
 
-        string_to_show = generate_boolean_expression_as_string(t.treatment_value("Format"))
+        string_to_show = generate_boolean_expression_as_string(
+                                                                t.treatment_value("Format"),
+                                                                t.treatment_value("AnswerPosition"));
 
         t.expected_answer = "1";
 
