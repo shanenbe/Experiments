@@ -109,7 +109,7 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
 
     repetitions: 10,
 
-    measurement: Reaction_Time(keys(["0", "1", "3"])),
+    measurement: Reaction_Time(keys(["0", "1"])),
 
     task_configuration:    (t:Task) => {
 

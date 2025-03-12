@@ -117,7 +117,7 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
 
         string_to_show = generate_boolean_expression_as_string(
                                                                 t.treatment_value("Format"),
-                                                                t.treatment_value("AnswerPosition"));
+                                                                parseInt(t.treatment_value("AnswerPosition")));
 
         t.expected_answer = "1";
 
