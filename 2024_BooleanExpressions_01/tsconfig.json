@@ -1,0 +1,30 @@
+{
+  "compileOnSave": true,
+
+
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "target": "ES6",
+    "allowJs": true,
+    "sourceMap": true,
+    "declaration": true,
+
+    "noImplicitAny": false,
+//    "isolatedModules": true,
+    "rootDirs": [
+        "./"
+    ],
+
+  },
+
+  "include": [  "*.ts",
+                "./**/*.ts",
+             ],
+
+  "exclude": [
+    "node_modules"
+  ],
+  "esModuleInterop": true
+  //    "allowSyntheticDefaultImports": true
+
+}
