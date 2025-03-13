@@ -1,6 +1,6 @@
 # Start experiment
 
-Rather a failed experiment. The goal was to test, whether "WITH" makes a difference in comparison to subqueries. 
-At least this experiment was not able to show a difference.
+Ok....this is strange. No effect, BUT....it looks like new line is
+even counterproductive for an answer position between 1-3. 
 
-[click here to start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2025_SQL_With_versus_Subqueries/trial01/index.html)
+BUT....there is the small tendency that new line helps for 4-5.

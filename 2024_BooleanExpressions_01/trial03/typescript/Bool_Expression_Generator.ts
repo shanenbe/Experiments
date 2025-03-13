@@ -48,7 +48,7 @@ function print_and_snippets_into_string(and_snippets: string[][], wants_new_line
 }
 
 export function generate_boolean_expression_as_string(treat_var_format:string, answerPos: number):string {
-    let number_of_literals = 8;
+    let number_of_literals = 15;
     let literals:string[] = [];
 
     let operators: string[] = [OR, OR, OR, AND, AND, AND, AND];
@@ -58,15 +58,13 @@ export function generate_boolean_expression_as_string(treat_var_format:string, a
     }
 
     operators = do_random_array_sort(operators);
-    let and_snippets = [[FALSE]];
-
-    for(let c=0; c < number_of_literals-1; c++) {
-        if(operators[c]==AND) {
-            and_snippets[and_snippets.length-1].push(FALSE);
-        } else {
-            and_snippets.push([FALSE]);
-        }
-    }
+    let and_snippets = [
+                            [FALSE, FALSE, FALSE],
+                            [FALSE, FALSE, FALSE],
+                            [FALSE, FALSE, FALSE],
+                            [FALSE, FALSE, FALSE],
+                            [FALSE, FALSE, FALSE],
+                       ];
 
     set_answer_position_into_and_snippets(and_snippets, answerPos);
     let ret =  print_and_snippets_into_string(and_snippets, treat_var_format=="MultiLine");
