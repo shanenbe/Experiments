@@ -14,6 +14,35 @@ let SEED = "42";
 
 SET_SEED(SEED);
 
+function generated_version_1(guard_executed: boolean) {
+    let ws2 = "&nbsp;".repeat(2);
+    let ws4 = "&nbsp;".repeat(4);
+
+
+    let ret = "";
+    if(guard_executed) {
+        ret = "let guard_cond = true;<br>"
+    } else {
+        ret = "let guard_cond = false;<br>"
+    }
+
+
+
+    ret = ret + "function f(param) {<br>" +
+        ws2 + "if(contidion)&nbsp;<br>" +
+        ws4 + "blbalbalb<br>";
+
+
+    return ret;
+}
+
+function generated_version_2(guard_executed: boolean) {
+    return "function f(param) {<br>" +
+    "&nbsp;&nbsp;isNull(asdfsadf) {...asdfsadff};<br></br>" +
+    "&nbsp;blbalbalb";
+}
+
+
 let experiment_configuration_function = (writer: Experiment_Output_Writer) => { return {
 
     experiment_name: "Nikita",
@@ -103,31 +132,32 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
                     ],
 
     layout: [
-        { variable: "Format",  treatments: ["CC", "US"]},
-        { variable: "Separator",  treatments: ["newLine", "whiteSpace"]},
-        { variable: "list_length",  treatments: ["3", "4", "5"]}
+        { variable: "Version",  treatments: ["1", "2"]},
+        { variable: "Answer",  treatments: ["0", "1"]},
     ],
 
-    repetitions: 3,
+    repetitions: 10,
 
-    measurement: Reaction_Time(keys(["0", "1", "2", "3", "4", "5"])),
+    measurement: Reaction_Time(keys(["0", "1"])),
 
     task_configuration:    (t:Task) => {
 
-        let string_to_show;
-        let list_length = parseInt(t.treatment_value("list_length"));
-        let is_camel_case = t.treatment_value("Format")=="CC";
-        let is_newLine = t.treatment_value("Separator") == "newLine";
+        let string_to_show = "";
 
-        string_to_show = generate_string(list_length, is_camel_case, is_newLine);
-        t.expected_answer = "1";
+        let guard_executed: boolean = t.treatment_value("Answer") == "1";
 
+        if(t.treatment_value("Version") == "1")
+            string_to_show = generated_version_1(guard_executed);
+        else if(t.treatment_value("Version") == "2")
+            string_to_show = generated_version_1(guard_executed);
+        else
+            throw "does not work";
+
+        t.expected_answer = "42";
         t.do_print_task = () => {
             writer.clear_stage();
             writer.print_html_on_stage(
-                "<div class='sourcecode'>"
-                + writer.convert_string_to_html_string(string_to_show)
-                + "</div>"
+                "<div class='sourcecode'>" + string_to_show + "<div>"
             );
         };
 
