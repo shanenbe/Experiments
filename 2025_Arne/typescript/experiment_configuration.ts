@@ -5,9 +5,6 @@ import {
     SET_SEED
 } from "../../N-of-1-Experimentation/modules/Experimentation/Experimentation.js";
 import {Task} from "../../N-of-1-Experimentation/modules/Experimentation/Task.js";
-import {
-    generate_string
-} from "./Code_Generator.js";
 
 
 let SEED = "42";
@@ -35,6 +32,8 @@ function generated_version_1(guard_executed: boolean) {
 
     return ret;
 }
+
+
 
 function generated_version_2(guard_executed: boolean) {
     return "function f(param) {<br>" +
@@ -142,6 +141,10 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
 
     task_configuration:    (t:Task) => {
 
+
+        // generate_code(   t.treatment_value("Version")
+        //                  t.treatment_value("Answer")
+        // )/
         let string_to_show = "";
 
         let guard_executed: boolean = t.treatment_value("Answer") == "1";

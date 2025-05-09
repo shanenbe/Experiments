@@ -4,13 +4,7 @@
   "main": "start_html.js",
   "type": "module",
   "scripts": {
-    "build RustReadability": "webpack --config ./2025_Rust_Readability/webpack.config.cjs",
-    "build TestExperiment": "webpack --config webpack.config.cjs",
-    "build MathJax": "webpack --config ./20xx_MathJax_Dummy/webpack.config.cjs",
-    "build Experiment": "webpack --config ./2024_LanguageTypesDSL_Readability/webpack.config.cjs",
-    "build Lib": "webpack --config ./N-of-1-Experimentation/___BUILD_LIB_FILE_TestExperiment/webpack.config.cjs",
-    "build Questionnaire": "webpack --config ./experiments/Questionnaire/webpack.config.js",
-    "start": "node server.ts"
+    "build RustReadability": "webpack --config ./webpack.config.cjs"
   },
   "dependencies": {
     "@types/node": "^20.6.0",
@@ -19,9 +13,6 @@
     "html-webpack-plugin": "^5.5.3",
     "http": "0.0.1-security",
     "http-server": "^14.1.1",
-    "node-fetch": "^2.7.0",
-    "nodemailer": "^6.9.7",
-    "pg": "^8.11.3",
     "seedrandom": "^3.0.5",
     "typescript": "^5.2.2",
     "webpack-cli": "^5.1.4"
