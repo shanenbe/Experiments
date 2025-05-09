@@ -50,9 +50,11 @@ The results of the experiment are described in the paper
 
 Hanenberg, Klanten, Gries, Gruhn, Readability of Domain-Specific Languages in Language Design: A Controlled Experiment on Declarative Inference Rules and Imperative Java Source Code (accepted for publication in Communications in Computer and Information Science -- to appear).
 
+## 5. Rust Readability
+[click here to start the experiment](https://shanenbe.github.io/Experiments/2025_Rust_Readability/index.html)
 
 
-## 5. Strings with Questionmarks: Backslash, Composition, Containment
+## 6. Strings with Questionmarks: Backslash, Composition, Containment
 [click here start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2023_String_Expressions_Escaping_vs_NonSingleLiteral_vs_Composition/index.html)
 
 Checks how strings should be composed. 
@@ -67,5 +69,5 @@ It is a 3x3 experiment with 4 repetitions per treatment combination - the first 
 
 Probably the big result of the study is: string composition is probably the worst choice to do for string generation.
 
-## 4. CamelCase, Snake_Case
+## 7. CamelCase, Snake_Case
 [click here start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2024_CamelCase_Underscore/index.html)
