@@ -19,7 +19,7 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
     pre_run_training_instructions   :   writer.string_page_command("<p>This starts training. Press [Esc] to abandon training. Press [Return] to continue.</p>"),
     pre_run_experiment_instructions :   writer.string_page_command("<p>Experiment starts. Be concentrated. Press [Return].</p>"),
     training_configuration:             {   can_be_cancelled: true, can_be_repeated: true },
-    finish_pages:                       [writer.string_page_command("Done. Press [Return] to get csv.")],
+    finish_pages:                       [writer.string_page_command("<p>Done. Press [Return] to get csv.</p>")],
 
     layout: [
         { variable: "IndirectionDepth",  treatments: ["1", "2", "3", "4"]},
@@ -32,7 +32,7 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
 
     task_configuration:    (t:Task) => {
         let depth = parseInt(t.treatment_value("IndirectionDepth"));
-        let code = generated_code(depth, 8)
+        let code = generated_code(depth, 6)
         t.expected_answer = code.returned_value;
 
         t.do_print_task = () => {
