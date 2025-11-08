@@ -13,11 +13,11 @@ SET_SEED(SEED);
 
 let experiment_configuration_function = (writer: Experiment_Output_Writer) => { return {
 
-    experiment_name: "Indentation_Length",
+    experiment_name: "Indirection",
     seed: SEED,
-    introduction_pages              :   [writer.string_page_command("What's the result?")],
-    pre_run_training_instructions   :   writer.string_page_command("This starts training. Press [Esc] to run experiment. Press [Return] to continue."),
-    pre_run_experiment_instructions :   writer.string_page_command("Experiment starts. Be concentrated. Press [Return]."),
+    introduction_pages              :   [writer.string_page_command("<h1>Indirection</h1><p>What's the result of the code? You should run the browser in full screen mode.</p>")],
+    pre_run_training_instructions   :   writer.string_page_command("<p>This starts training. Press [Esc] to abandon training. Press [Return] to continue.</p>"),
+    pre_run_experiment_instructions :   writer.string_page_command("<p>Experiment starts. Be concentrated. Press [Return].</p>"),
     training_configuration:             {   can_be_cancelled: true, can_be_repeated: true },
     finish_pages:                       [writer.string_page_command("Done. Press [Return] to get csv.")],
 
@@ -26,13 +26,13 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
         { variable: "Ordering",  treatments: ["Random"]}
     ],
 
-    repetitions: 5,
+    repetitions: 10,
 
     measurement: Reaction_Time(keys(["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"])),
 
     task_configuration:    (t:Task) => {
         let depth = parseInt(t.treatment_value("IndirectionDepth"));
-        let code = generated_code(depth, 10)
+        let code = generated_code(depth, 8)
         t.expected_answer = code.returned_value;
 
         t.do_print_task = () => {
