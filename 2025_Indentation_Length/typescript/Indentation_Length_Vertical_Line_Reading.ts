@@ -15,7 +15,7 @@ import {
 } from "./Indentation_Length_Vertical_Jumps_Text.js";
 import {Nouns} from "./Nof1/modules/Words/Nouns.js";
 
-let SEED = "42";
+let SEED = "43";
 
 SET_SEED(SEED);
 
@@ -43,18 +43,26 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
     pre_run_training_instructions   :   writer.string_page_command(pre_run_training_instructions()),
     pre_run_experiment_instructions :   writer.string_page_command(pre_run_experiment_instructions()),
     post_questionnaire              :   Standard_Post_Questionnaire(),
-    training_configuration:             {   can_be_cancelled: true, can_be_repeated: true },
+
     finish_pages:                       [writer.string_page_command(finish_pages())],
 
     layout: [
         { variable: "Length",  treatments: ["2", "4", "6", "8"]},
         { variable: "Level",  treatments: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
-        { variable: "Distance_from_Center",  treatments: ["_computed_"]}
+        { variable: "Distance_from_Center",  treatments: ["_computed_"]},
+        { variable: "Feedback",  treatments: ["_to_be_written_"]}
     ],
+
+    training_configuration: {
+        fixed_treatments: [],
+        can_be_cancelled: true,
+        can_be_repeated: false
+    },
 
     repetitions: 3,
 
-    measurement: Reaction_Time(keys(["1"])),
+    measurement: Reaction_Time(keys(["1", "0"])),
+    task_feedback: ["y", "n"],
 
     task_configuration:    (t:Task) => {
         let center = 5;
@@ -83,8 +91,12 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
             writer.clear_stage();
             writer.print_string_on_stage("<div class='sourcecode'>" + html_string + "</div>");
             // writer.print_html_on_stage();
-
         };
+
+        t.print_feedback = () => {
+            writer.clear_stage();
+            writer.print_string_on_stage("<p> Should this task be considered or were you not concentrated enough (\"y\"= everthing fine, \"n\"= something went wrong)</p>");
+        }
 
         t.do_print_pre_task = () => {
             writer.clear_stage();
@@ -94,6 +106,8 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
         t.accepts_answer = (s) => {
             return true;
         }
+
+        // t.requires_task_feedback = () => true;
 
         t.do_print_after_task_information = () => {
             writer.clear_stage();

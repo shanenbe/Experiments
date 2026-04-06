@@ -1,6 +1,8 @@
 export function intro_pages() {
 
-    return "<p>Hi, thx for participating. You will be shown a number of if-statements where one </p>";
+    return "<p>Hi, thx for participating. You will be shown a number of if-statements where one hignlighted condition fails.</p>" +
+        "<p>Your task is to identify, where the closing bracket of the corresponding if-statement appears. Each bracket has a comment with a corresponding number. </p>" +
+        "<p>You do not need to type in the right number. Just \"say\' the right number and press[1] when you found it</p>";
 }
 
 export function pre_run_training_instructions(): string {

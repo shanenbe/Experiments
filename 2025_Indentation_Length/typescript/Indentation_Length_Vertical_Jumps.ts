@@ -35,7 +35,7 @@ export function set_if_conditions_on_nous_each_starting_with_different_letter(if
 
 let experiment_configuration_function = (writer: Experiment_Output_Writer) => { return {
 
-    experiment_name: "Indentation_Length",
+    experiment_name: "Indentation_Length_Vertical_Jumps",
     seed: SEED,
     introduction_pages              :   [writer.string_page_command(intro_pages())],
     pre_run_training_instructions   :   writer.string_page_command(pre_run_training_instructions()),
@@ -79,8 +79,6 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => { 
         t.do_print_task = () => {
             writer.clear_stage();
             writer.print_string_on_stage("<div class='sourcecode'>" + html_string + "</div>");
-            // writer.print_html_on_stage();
-
         };
 
         t.accepts_answer = (s) => {
