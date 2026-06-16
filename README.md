@@ -38,9 +38,7 @@ The experiment tests the readability time of JSON-objects by asking the single q
 
 ## 3. Type Systems - constructor calls
 # 3.1 Flat Constructor Calls
-[click here to start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2024_TypeSystems_ConstructorCall_Flat/index.html)
-
-The results of the experiment are described in the paper
+[click here to start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2024_TypeSystems_ConstructorCall_Flat/index.html). The results of the experiment are described in the paper
 
 Hanenberg, Gries, Gruhn, Studying Type System Usability in an Inexpensive Way: A Repeated, Generated N-of-1 Trial on the Effect of (Nominal and Annotated) Static and Dynamic Types and Number of Parameters in Constructor Calls on Development Time, ICSOFT 2026.
 
