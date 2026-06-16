@@ -36,13 +36,13 @@ The experiment tests the readability time of JSON-objects by asking the single q
 
 [Hanenberg,Morzeck, Werger, Gries, Gruhn, "Indentation and Reading Time: A Controlled Experiment on the Differences Between Generated Indented and Non-indented JSON Objects", Communications in Computer and Information Science 2104, Springer, 2024, pp. 50-75.](https://doi.org/10.1007/978-3-031-61753-9_4)
 
-## 3. Type Systems - constructor calls
-# 3.1 Flat Constructor Calls
+# 3. Type Systems - constructor calls
+## 3.1 Flat Constructor Calls
 [click here to start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2024_TypeSystems_ConstructorCall_Flat/index.html). The results of the experiment are described in the paper
 
 Hanenberg, Gries, Gruhn, Studying Type System Usability in an Inexpensive Way: A Repeated, Generated N-of-1 Trial on the Effect of (Nominal and Annotated) Static and Dynamic Types and Number of Parameters in Constructor Calls on Development Time, ICSOFT 2026.
 
-- Hierarchical experiment: [click here to start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2024_TypeSystems_ConstructorCall/index.html)
+## 3.2 Hierarchical experiment: [click here to start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2024_TypeSystems_ConstructorCall/index.html)
 
 ## 4. DSL
 [click here to start the experiment](https://shanenbe.github.io/Experiments/2024_LanguageTypesDSL_Readability/index.html) This experiment is a follow-up study of the one described in
