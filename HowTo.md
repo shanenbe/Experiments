@@ -105,8 +105,8 @@ Unfortunately, using TypeScript requires some additional effort in order to prov
 
 First, you need to install webpack on your machine, next, you need to start the webpack with the appropriate configuration. The template directory 
 https://github.com/shanenbe/Experiments/tree/main/20xx_HelloWorld_TypeScript contains three required files for packing your project via 
-webpack: ``tsconfig.json``, ``package.json``, and ``webpack.config.cjs``. In case you use WebStorm, you need to generate an npm runner, where 
-you pass the package.json to. This file contains a webpack runner ``"webpack --config webpack.config.cjs"`` that starts webpack for the project.
+webpack: ``tsconfig.json``, ``package.json``, and ``generated_js_lib.cjs``. In case you use WebStorm, you need to generate an npm runner, where 
+you pass the package.json to. This file contains a webpack runner ``"webpack --config generated_js_lib.cjs"`` that starts webpack for the project.
 
 Once you started webpack, it generates a file ``exp_trial02.js`` in https://github.com/shanenbe/Experiments/tree/main/20xx_HelloWorld_TypeScript. 
 Now, you can run ``index.html`` to start the experiment.
