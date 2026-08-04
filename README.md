@@ -36,6 +36,11 @@ The experiment tests the readability time of JSON-objects by asking the single q
 
 [Hanenberg,Morzeck, Werger, Gries, Gruhn, "Indentation and Reading Time: A Controlled Experiment on the Differences Between Generated Indented and Non-indented JSON Objects", Communications in Computer and Information Science 2104, Springer, 2024, pp. 50-75.](https://doi.org/10.1007/978-3-031-61753-9_4)
 
+
+### 1.3 Indentation size
+The experiment should take (without training) about 10-15 minutes. [click here start the experiment](https://shanenbe.github.io/Experiments/2026_Indentation_Size/index.html)
+The experiment tests the readability time of JSON-objects by asking the single quesion "how many fields does the outermost object have?". The experiment is described in:
+
 # 3. Type Systems - constructor calls
 ## 3.1 Flat Constructor Calls
 [click here to start the experiment](https://htmlpreview.github.io/?https://raw.githubusercontent.com/shanenbe/Experiments/main/2024_TypeSystems_ConstructorCall_Flat/index.html). The results of the experiment are described in the paper
