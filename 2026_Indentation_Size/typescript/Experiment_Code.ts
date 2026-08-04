@@ -207,7 +207,7 @@ export function configure_task(
                                                                                                                                                     Number(indentation_size),
                                                                                                                                                     indent_guides                           );
 
-        t.expected_answer = String(if_position);
+        t.expected_answer = String(ifs.result);
 
         t.do_print_task = () => {
                                         writer.clear_stage();
