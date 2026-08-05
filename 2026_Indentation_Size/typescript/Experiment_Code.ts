@@ -208,7 +208,7 @@ export function configure_task(
                                                                                                                                                     indent_guides                           );
 
         t.expected_answer = String(ifs.result);
-
+        // here
         t.do_print_task = () => {
                                         writer.clear_stage();
                                         if(t.is_training) {
