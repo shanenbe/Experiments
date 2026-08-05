@@ -212,7 +212,7 @@ export function configure_task(
         t.do_print_task = () => {
                                         writer.clear_stage();
                                         if(t.is_training) {
-                                            writer.print_html_on_stage("<p><div style='padding-bottom: 50px; background-color: yellow'>Note, you can always exit training by pressing [Esc]</div></p>");
+                                            writer.print_html_on_stage("<p><div style='padding-bottom: 50px; background-color: red'>Note, you can always exit training by pressing [Esc]</div></p>");
                                         }
 
                                         let to_show =  "<div class='sourcecode'>" + if_statement_string + "</div>";
