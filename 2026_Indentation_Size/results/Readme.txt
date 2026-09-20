@@ -1,0 +1,1 @@
+The file All_Results_Raw_Measurments.omv contains a Jamovi-file (https://www.jamovi.org/) with the raw measurments.
