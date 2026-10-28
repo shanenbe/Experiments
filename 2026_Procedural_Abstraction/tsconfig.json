@@ -4,9 +4,12 @@
 
   "compilerOptions": {
     "moduleResolution": "node",
+
+    "sourceMap": true,
+    "inlineSources": true,
+
     "target": "ES6",
     "allowJs": true,
-    "sourceMap": true,
     "declaration": true,
     "lib": ["es2016", "dom"],  // Added this line
     "noImplicitAny": false,
