@@ -236,6 +236,6 @@ export function finish_pages(): string {
         "<a href='https://github.com/shanenbe/Experiments/tree/main/2026_Procedural_Abstraction/Agreement.pdf' target='_blank'>here</a>. " +
         "Note, that it is not necessary to send a signed version of the agreement to the experimenter.<br><br>" +
         "After sending your email, you can close this window.</p>" +
-        "<p>Many thanks for your participation.<br>" +
+        "<p>Many thanks for your participation. In case you are interested in getting the experiment results after the experiment has been finished, leave me a message.<br>" +
         "-Stefan Hanenberg</p>"
 }
