@@ -233,7 +233,7 @@ export function finish_pages(): string {
         "<p>By sending that mail, you agree that " +
         "your (anonymized) data will be used for scientific analyses where your data (together with others in an " +
         "anonymized way) will be published.<br><br>I.e., you agree with the information sheet, see " +
-        "<a href='https://github.com/shanenbe/Experiments/tree/main/2026_Functional_Decomposition/Agreement.pdf' target='_blank'>here</a>. " +
+        "<a href='https://github.com/shanenbe/Experiments/tree/main/2026_Procedural_Abstraction/Agreement.pdf' target='_blank'>here</a>. " +
         "Note, that it is not necessary to send a signed version of the agreement to the experimenter.<br><br>" +
         "After sending your email, you can close this window.</p>" +
         "<p>Many thanks for your participation.<br>" +
